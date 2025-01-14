@@ -13,9 +13,34 @@
   # Hyperland
   programs.hyprland.enable = true;
 
-  services.displayManager.sddm.enable = true;
+#  services.displayManager.sddm = {
+ #   enable = true;
+  #  package = pkgs.kdePackages.sddm;
+  #};
 
-  services.displayManager.sddm.wayland.enable = true;
+  #services.displayManager.sddm.wayland.enable = true;
+
+  dconf.setting = {
+    "org/gnome/desktop/input-sources" = {
+      sources = [(lib.mkTuple["xkb" "no"])];
+    };
+  };  
+
+  services.xserver.displayManager.gdm = {
+    enable = true;
+    wayland = true;
+  };
+  
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
+    config.common.default = "*";
+  };
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.gdm-password.enableGnomeKeyring = true;
@@ -85,23 +110,10 @@
 # xdg.portal.enable = true;
 #  xdg.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     zip
-    wayland
-    xdg-desktop-portal-wlr
-    xdg-desktop-portal
-    waybar
-    (waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      })
-    )
-    kitty
-    rofi-wayland
-    hyprland
   ];
 
   # Experimental features
