@@ -26,7 +26,7 @@
     #     ];
     #   };
     # }:  
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+    nixosConfigurations."ezt" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit system; };
 	

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -56,8 +56,28 @@
     settings.linux_display_server = "wayland";
   };
 
+  dconf.settings = {
+    "org/gnome/desktop/inputs-sources" = {
+      sources = [
+        (lib.gvariant.mkTuple ["xkb" "no"])
+      ];
+    };
+  };
+
   # Rofi-wayland
-  # programs.rofi-wayland (IDK HVA FAEN DEN HETER)
+  programs.rofi = {
+    enable = true;
+    package = pkgs.rofi-wayland;
+  };
+
+  wayland.windowManager.hyprland.settings.bindr = [
+    "SUPER, Super_L, exec, kill $(pidof rofi) || rofi -show drun"
+  ];
+
+  # Firefox
+  programs.firefox = {
+    enable = true;
+  };
   
   # The home.packages option allows you to install Nix packages into your
   # environment.
