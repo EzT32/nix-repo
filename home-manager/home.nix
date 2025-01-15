@@ -78,7 +78,15 @@
   programs.firefox = {
     enable = true;
   };
-  
+ 
+  # Shell options
+  programs.bash.enable = true;
+  programs.eza.enable = true;
+  programs.zoxide = {
+    enable = true;
+    options = ["--cmd cd"];
+  };
+ 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [];

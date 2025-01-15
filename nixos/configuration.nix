@@ -1,9 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 
 {
   imports =
     [
       ./hardware-configuration.nix
+      inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
     ];
 
   # Hyperland

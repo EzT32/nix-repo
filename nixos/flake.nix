@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -28,7 +29,7 @@
     # }:  
     nixosConfigurations."ezt" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit system; };
+      specialArgs = { inherit inputs system; };
 	
       modules = [
 	./configuration.nix
