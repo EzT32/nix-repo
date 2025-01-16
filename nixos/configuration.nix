@@ -66,6 +66,10 @@
   
   # Keyboard layout for GDM
   services.xserver.xkb.layout = "no";
+  
+  # Touchpad settings
+  #services.libinput.enable = true;
+  #services.libinput.touchpad.naturalScrolling = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -94,6 +98,7 @@
     vim
     wget
     zip
+    swww
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -101,6 +106,6 @@
   programs.mtr.enable = true;
   programs.gnupg.agent.enable = true;
 
-    system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
 }
