@@ -1,103 +1,35 @@
 { config, pkgs, lib, ... }:
+  
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
+  imports = [
+    ./hyprland/hyprland.nix
+    ./hyprland/kitty.nix
+    ./hyprland/rofi.nix
+    ./hyprland/wayland.nix
+    #./hyprland/swww.nix
+    ./hyprland/hyprpaper.nix
+    ./shell/shell.nix
+    ./git/git.nix
+    ./discord/discord.nix
+    ./android/androidStudio.nix 
+  ];
+
   home.username = "ezt";
   home.homeDirectory = "/home/ezt";
 
-  # This value determines the Home Manager release that your configuration is
-  # compatible with. This helps avoid breakage when a new Home Manager release
-  # introduces backwards incompatible changes.
-  #
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "24.11"; # Please read the comment before changing.
-
-  # Wayland/Hyprland
-  wayland.windowManager.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    settings = {
-      input = {
-        kb_layout = "no";
-        touchpad = {
-          natural_scroll = true;
-          disable_while_typing = false;
-        };
-      };
-      bind = [
-        "SUPER,Q,killactive"
-        "SUPER,T,exec,kitty"
-      ];
-      "exec-once" = "bash ~/.config/hypr/start.sh";
-      
-    };
-  };
-  
-  # Enable git
-  programs.git = {
-    enable = true;
-    userName = "EzT32";
-    userEmail = "theodor.berghansen@icloud.com";
-    package = pkgs.gitFull;
-    extraConfig.credential.helper = "libsecret";
-  };
-
-  # Waybar
-  programs.waybar = {
-    enable = true;
-    systemd.enable = true;
-  };
-
-  # Zsh
-  programs.zsh = {
-    enable = true;
-    autosuggestion.enable = true;
-    enableCompletion = true;
-  };
-
-  # Kitty
-  programs.kitty = {
-    enable = true;
-    settings.linux_display_server = "wayland";
-  };
-
-  dconf.settings = {
-    "org/gnome/desktop/inputs-sources" = {
-      sources = [
-        (lib.gvariant.mkTuple ["xkb" "no"])
-      ];
-    };
-  };
-
-  # Rofi-wayland
-  programs.rofi = {
-    enable = true;
-    package = pkgs.rofi-wayland;
-  };
-
-  wayland.windowManager.hyprland.settings.bindr = [
-    "SUPER, Super_L, exec, kill $(pidof rofi) || rofi -show drun"
-  ];
+  home.stateVersion = "24.11";
 
   # Firefox
   programs.firefox = {
     enable = true;
   };
  
-  # Shell options
-  programs.bash.enable = true;
-  programs.eza.enable = true;
-  programs.zoxide = {
-    enable = true;
-    options = ["--cmd cd"];
-  };
- 
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

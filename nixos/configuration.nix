@@ -45,7 +45,8 @@
     options = "--delete-older-than 1w";
   };
 
-
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  
   # Allow 'unfree' packages in search (Like proprietary GPU drivers etc).
   nixpkgs.config.allowUnfree = true;  
 
