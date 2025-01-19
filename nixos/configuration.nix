@@ -46,6 +46,7 @@
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables.GDK_SCALE = "1.5";
   
   # Allow 'unfree' packages in search (Like proprietary GPU drivers etc).
   nixpkgs.config.allowUnfree = true;  

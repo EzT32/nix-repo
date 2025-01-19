@@ -12,6 +12,7 @@
           disable_while_typing = false;
         };
       };
+      xwayland.force_zero_scaling = true;
       bind = [
         "SUPER,q,killactive"
         "SUPER,t,exec,kitty"

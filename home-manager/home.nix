@@ -13,6 +13,8 @@
     ./git/git.nix
     ./discord/discord.nix
     ./android/androidStudio.nix 
+    ./obsidian/obsidian.nix
+    ./neovim/nixvim.nix
   ];
 
   home.username = "ezt";
