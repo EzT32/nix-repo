@@ -98,7 +98,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ezt = {
      isNormalUser = true;
-     extraGroups = [ "wheel" "networkmanager"]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "networkmanager"];
   };
 
   environment.systemPackages = with pkgs; [
@@ -106,11 +106,12 @@
     vim
     wget
     zip
+    brightnessctl
   ];
 
-  boot.kernelModules = [
-    "thinkpad-acpi"
-  ];
+#  boot.kernelModules = [
+ #   "thinkpad-acpi"
+  #];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

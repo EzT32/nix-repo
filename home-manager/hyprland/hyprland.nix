@@ -18,8 +18,8 @@
         "SUPER,t,exec,kitty"
         "SUPER_SHIFT,f,exec,firefox"
 	", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-	", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"	
-	#", XF86AudioMicMute, exec, /home/ezt/nix-repo/home-manager/hyprland/toggle_mic_mute.sh"
+	#", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"	
+	", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q '\[MUTED\]'; then brightnessctl -d platform::micmute set 1; else brightnessctl -d platform::micmute set 0; fi"
 	];
 
       bindr = [
