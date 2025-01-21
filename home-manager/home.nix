@@ -6,7 +6,7 @@
     ./hyprland/hyprland.nix
     ./hyprland/kitty.nix
     ./hyprland/rofi.nix
-    ./hyprland/wayland.nix
+    ./hyprland/waybar/waybar.nix
     #./hyprland/swww.nix
     ./hyprland/hyprpaper.nix
     ./shell/shell.nix

@@ -56,8 +56,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "ezt";
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.hostName = "ezt"; 
+  networking.networkmanager.enable = true;
+  networking.wireless.iwd.enable = true;
 
   time.timeZone = "Europe/Oslo";
 
@@ -79,6 +80,7 @@
 
   # Enable sound.
   security.rtkit.enable = true;
+  hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     wireplumber.enable = true;
@@ -89,6 +91,9 @@
       support32Bit = true;
     };
   };
+
+  # Enable bluetooth
+  # https://nixos.wiki/wiki/PipeWire
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ezt = {
@@ -101,7 +106,10 @@
     vim
     wget
     zip
-    swww
+  ];
+
+  boot.kernelModules = [
+    "thinkpad-acpi"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
