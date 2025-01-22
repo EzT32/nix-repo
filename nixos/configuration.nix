@@ -102,11 +102,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-    tree
     vim
     wget
     zip
-    brightnessctl
+    unzip
   ];
 
 #  boot.kernelModules = [

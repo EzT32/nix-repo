@@ -16,7 +16,11 @@
     opts = {
       number = true;
       relativenumber = true;
-      shiftwidth = 2;
+      shiftwidth = 2; 
+    };
+    clipboard = {
+      register = "unnamedplus";
+      providers.wl-copy.enable = true;
     };
   };
 }
