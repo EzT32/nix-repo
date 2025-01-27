@@ -36,6 +36,11 @@ in
 	"SUPERSHIFT,3,movetoworkspace,3"
 	"SUPERSHIFT,4,movetoworkspace,4"
 	"SUPERSHIFT,5,movetoworkspace,5"
+	"SUPER, g, togglefloating"
+	"SUPERSHIFT, h, movewindow, l"
+	"SUPERSHIFT, l, movewindow, r"
+	"SUPERSHIFT, k, movewindow, u"
+	"SUPERSHIFT, j, movewindow, d"
 	];
 
       bindr = [
@@ -50,8 +55,9 @@ in
         ",XF86AudioRaiseVolume,exec,wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
 	", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
       ];
-    };  
+    };
+
   };
 
-  services.swayosd.enable = true;
+  #services.swayosd.enable = true;
 }

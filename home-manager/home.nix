@@ -1,6 +1,4 @@
 { config, pkgs, lib, ... }:
-  
-
 {
   imports = [
     ./hyprland/hyprland.nix
@@ -15,6 +13,7 @@
     ./android/androidStudio.nix 
     ./obsidian/obsidian.nix
     ./neovim/nixvim.nix
+    ./python/python.nix
   ];
 
   home.username = "ezt";
@@ -26,13 +25,15 @@
   programs.firefox = {
     enable = true;
   };
- 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
 
   nixpkgs.config.allowUnfree = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  home.packages = [
+    pkgs.spotify
+  ];
+
+  #programs.ncspot.enable = true;
 }
