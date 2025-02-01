@@ -78,7 +78,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound.
+  # Enable sound and bluetooth.
   security.rtkit.enable = true;
   hardware.pulseaudio.enable = false;
   services.pipewire = {
@@ -92,8 +92,7 @@
     };
   };
 
-  # Enable bluetooth
-  # https://nixos.wiki/wiki/PipeWire
+  hardware.bluetooth.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ezt = {
@@ -106,7 +105,9 @@
     wget
     zip
     unzip
-  ];
+    bluez
+    blueman
+   ];
 
 #  boot.kernelModules = [
  #   "thinkpad-acpi"

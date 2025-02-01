@@ -2,18 +2,15 @@
 {
   imports = [
     ./hyprland/hyprland.nix
-    ./hyprland/kitty.nix
-    ./hyprland/rofi.nix
-    ./hyprland/waybar/waybar.nix
     #./hyprland/swww.nix
-    ./hyprland/hyprpaper.nix
     ./shell/shell.nix
     ./git/git.nix
-    ./discord/discord.nix
-    ./android/androidStudio.nix 
-    ./obsidian/obsidian.nix
+    ./applications/discord.nix
+    ./applications/androidStudio.nix 
+    ./applications/obsidian.nix
     ./neovim/nixvim.nix
     ./python/python.nix
+    #./swayidle.nix
   ];
 
   home.username = "ezt";
