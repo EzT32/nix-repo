@@ -94,6 +94,8 @@
 
   hardware.bluetooth.enable = true;
 
+
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ezt = {
      isNormalUser = true;
@@ -107,6 +109,7 @@
     unzip
     bluez
     blueman
+    brightnessctl
    ];
 
 #  boot.kernelModules = [

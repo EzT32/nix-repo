@@ -103,6 +103,8 @@ in
       binde = [
         ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
 	", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+	", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+	", XF86MonBrightnessUp, exec, brightnessctl set 10%+"
 	#", RIGHT, resizeactive, 10 0"
 	#", LEFT, resizeactive, -10 0"
 	#", UP, resizeactive, 0 -10"
