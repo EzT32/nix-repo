@@ -30,6 +30,8 @@
 
   home.packages = [
     pkgs.spotify
+    pkgs.steam
+    pkgs.minecraft
   ];
 
   #programs.ncspot.enable = true;
