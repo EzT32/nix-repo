@@ -31,8 +31,10 @@
   home.packages = [
     pkgs.spotify
     pkgs.steam
-    pkgs.minecraft
+    pkgs.grim  # Takes screenshots
+    pkgs.slurp # Selects a region
+    pkgs.swappy # Annotates screenshots
   ];
-
+    
   #programs.ncspot.enable = true;
 }

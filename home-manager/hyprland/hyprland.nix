@@ -85,7 +85,12 @@ in
 	"SUPERSHIFT, 7, movetoworkspace, 7"
 	"SUPERSHIFT, 8, movetoworkspace, 8"
 	"SUPERSHIFT, 9, movetoworkspace, 9"
-	"SUPERSHIFT, 0, movetoworkspace, 10"	
+	"SUPERSHIFT, 0, movetoworkspace, 10"
+
+	", PRINT, exec, grim ~/Pictures/screenshot-$(date +'%Y-%m-%d-%H%M%S').png"
+	"SHIFT, PRINT, exec, grim -g \"$(slurp)\" ~/Pictures/screenshot-$(date +'%Y-%m-%d-%H%M%S').png"
+	# Select a region, take a screenshot, and open in swappy for annotation
+	"SUPERSHIFT, S, exec, grim -g \"$(slurp)\" - | swappy -f -"
 	];
 
       # Trigger on release
