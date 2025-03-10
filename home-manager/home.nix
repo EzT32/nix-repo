@@ -8,7 +8,7 @@
     ./applications/discord.nix
     ./applications/androidStudio.nix 
     ./applications/obsidian.nix
-    ./neovim/nixvim.nix
+    ./nvim/neovim.nix
     ./python/python.nix
     #./swayidle.nix
   ];
@@ -33,8 +33,7 @@
     pkgs.steam
     pkgs.grim  # Takes screenshots
     pkgs.slurp # Selects a region
-    pkgs.swappy # Annotates screenshots
+    pkgs.swappy # Annotates screenshots 
   ];
     
-  #programs.ncspot.enable = true;
 }

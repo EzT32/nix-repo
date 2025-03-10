@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 {
   home.packages = [
-    pkgs.dolphin
+    pkgs.kdePackages.dolphin
 
     # Core dependencies for Dolphin
     pkgs.kdePackages.qtwayland

@@ -75,7 +75,8 @@
         "format-ethernet": "enth {bandwidthDownBits}",
         "format-disconnected" : "no network",
         "interval": 5,
-        "tooltip": false
+        "tooltip": false,
+	"on-click": "~/.local/bin/rofi-wifi-menu"
     },
 
     "pulseaudio": {

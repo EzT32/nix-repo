@@ -12,6 +12,7 @@
       pillow
       seaborn
       torch-bin
+      black
       ]
     ))
   ];
