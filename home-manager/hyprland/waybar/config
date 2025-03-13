@@ -74,10 +74,11 @@
         "format-wifi" : "wifi {bandwidthDownBits}",
         "format-ethernet": "enth {bandwidthDownBits}",
         "format-disconnected" : "no network",
+		"format-no-carrier": "no Network",
         "interval": 5,
         "tooltip": false,
-	"on-click": "~/.local/bin/rofi-wifi-menu"
-    },
+		"on-click": "nmcli radio wifi $(nmcli radio wifi | grep -q 'enabled' && echo off || echo on)"
+	},
 
     "pulseaudio": {
         "scroll-step": 5,

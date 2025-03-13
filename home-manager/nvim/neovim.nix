@@ -1,37 +1,44 @@
-{ config, pkgs, inputs, ... }:
-{
+{pkgs, ...}: {
   home.packages = [
+    # LSPs
     pkgs.lua-language-server
     pkgs.nil
     pkgs.ccls
     pkgs.pyright
+    pkgs.jdt-language-server
+
+    pkgs.stylua
+    pkgs.alejandra
+    pkgs.clang-tools
+    pkgs.black
+    pkgs.isort
   ];
 
-  programs.neovim =
-  let
+  programs.neovim = let
     toLua = str: "lua << EOF\n${str}\nEOF\n";
     toLuaFile = file: "lua <<EOF\n${builtins.readFile file}\nEOF\n";
-  in
-  {
+  in {
     enable = true;
 
-	viAlias = true;
-	vimAlias = true;
-	vimdiffAlias = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
 
     extraPackages = with pkgs; [
       lua-language-server
       nil
+      ccls
+      pyright
+      jdt-language-server
 
       wl-clipboard
     ];
 
     extraLuaConfig = ''
-        ${builtins.readFile ./options.lua}
+      ${builtins.readFile ./options.lua}
     '';
 
-	plugins = with pkgs.vimPlugins; [
-
+    plugins = with pkgs.vimPlugins; [
       {
         plugin = nvim-lspconfig;
         config = toLuaFile ./plugin/lsp.lua;
@@ -49,7 +56,7 @@
 
       neodev-nvim
 
-      nvim-cmp 
+      nvim-cmp
       {
         plugin = nvim-cmp;
         config = toLuaFile ./plugin/cmp.lua;
@@ -68,23 +75,28 @@
       luasnip
       friendly-snippets
 
-
       lualine-nvim
       nvim-web-devicons
 
       {
-        plugin = (nvim-treesitter.withPlugins (p: [
+        plugin = nvim-treesitter.withPlugins (p: [
           p.tree-sitter-nix
           p.tree-sitter-vim
           p.tree-sitter-bash
           p.tree-sitter-lua
           p.tree-sitter-python
           p.tree-sitter-json
-        ]));
+        ]);
         config = toLuaFile ./plugin/treesitter.lua;
       }
 
+      null-ls-nvim
+      {
+        plugin = null-ls-nvim;
+        config = toLuaFile ./plugin/null-ls.lua;
+      }
+
       vim-nix
-		];
+    ];
   };
 }

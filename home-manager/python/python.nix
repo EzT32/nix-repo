@@ -1,19 +1,18 @@
-{ config, pkgs, lib, ... }:
-{
+{pkgs, ...}: {
   home.packages = [
     (pkgs.python311.withPackages (
-      ps: with ps; [
-      python
-      numpy
-      matplotlib
-      pandas
-      scikit-learn
-      jupyter
-      pillow
-      seaborn
-      torch-bin
-      black
-      ]
+      ps:
+        with ps; [
+          python
+          numpy
+          matplotlib
+          pandas
+          scikit-learn
+          jupyter
+          pillow
+          seaborn
+          torch-bin
+        ]
     ))
   ];
 }
