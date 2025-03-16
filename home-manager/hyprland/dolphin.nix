@@ -1,37 +1,46 @@
-{ config, pkgs, lib, ... }:
-{
-  home.packages = [
-    pkgs.kdePackages.dolphin
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    kdePackages.dolphin
 
     # Core dependencies for Dolphin
-    pkgs.kdePackages.qtwayland
-    pkgs.kdePackages.qtsvg
-    pkgs.kdePackages.kio-fuse
-    pkgs.kdePackages.kio-extras
-    pkgs.kdePackages.kdegraphics-thumbnailers
+    kdePackages.qtwayland
+    kdePackages.qtsvg
+    kdePackages.kio-fuse
+    kdePackages.kio-extras
+    kdePackages.kdegraphics-thumbnailers
 
     # Nordic KDE Theme
-    pkgs.nordic
+    nordic
+
+    pipewire
+    wireplumber
 
     # Recommended extras for better appearance
-    pkgs.kdePackages.frameworkintegration  # Ensures KDE apps blend well
-    pkgs.kdePackages.kiconthemes  # Ensures icon theming works properly
-    pkgs.libsForQt5.qtstyleplugins  # Extra Qt style plugins
+    kdePackages.frameworkintegration # Ensures KDE apps blend well
+    kdePackages.kiconthemes # Ensures icon theming works properly
+    libsForQt5.qtstyleplugins # Extra Qt style plugins
 
     # Kvantum and required dependencies
-    pkgs.libsForQt5.qtstyleplugin-kvantum  # Kvantum theme engine
+    #qt6ct # Qt6 Configuration Tool
+    libsForQt5.qtstyleplugin-kvantum # Kvantum engine for Qt5
+    qt6Packages.qtstyleplugin-kvantum # Kvantum engine for Qt6
+    kdePackages.breeze-icons
   ];
 
+  xdg.configFile."kdeglobals".text = ''
+    [Icons]
+    Theme=Breeze
+  '';
+
+  xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
+    [General]
+    theme=Nordic
+  '';
+
   home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "kde";
-    XDG_CURRENT_DESKTOP = "KDE";
-    XDG_SESSION_TYPE = "wayland";
-    QT_QPA_PLATFORM = "wayland";
-    KDE_FULL_SESSION = "true";
-
-    # Apply the Nordic theme
-    QT_STYLE_OVERRIDE = "kvantum";  # Ensures Qt apps follow Kvantum styling
+    QT_QPA_PLATFORMTHEME = "qt5ct"; # Ensures Qt5 apps use qt5ct
+    QT_STYLE_OVERRIDE = "kvantum"; # Forces Kvantum as the style
+    XDG_CURRENT_DESKTOP = "KDE"; # Helps Qt apps detect settings
+    KDE_FULL_SESSION = "true"; # Needed for proper KDE app theming
   };
-  
-
 }

@@ -11,7 +11,7 @@ null_ls.setup({
 			extra_args = { "--style={BasedOnStyle: Google, IndentWidth: 4}" },
 			filetypes = { "java" },
 		}),
-	},
+	}
 })
 
 -- Global keybinding for formatting (works even if LSP is down)

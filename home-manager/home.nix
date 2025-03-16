@@ -1,16 +1,13 @@
-{ config, pkgs, lib, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./hyprland/hyprland.nix
-    #./hyprland/swww.nix
     ./shell/shell.nix
     ./git/git.nix
     ./applications/discord.nix
-    ./applications/androidStudio.nix 
+    ./applications/android-studio.nix
     ./applications/obsidian.nix
-    ./nvim/neovim.nix
+    ./nvim/nvim.nix
     ./python/python.nix
-    #./swayidle.nix
   ];
 
   home.username = "ezt";
@@ -31,9 +28,8 @@
   home.packages = [
     pkgs.spotify
     pkgs.steam
-    pkgs.grim  # Takes screenshots
+    pkgs.grim # Takes screenshots
     pkgs.slurp # Selects a region
-    pkgs.swappy # Annotates screenshots 
+    pkgs.swappy # Annotates screenshots
   ];
-    
 }
