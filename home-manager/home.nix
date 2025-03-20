@@ -28,8 +28,8 @@
   home.packages = [
     pkgs.spotify
     pkgs.steam
-    pkgs.grim # Takes screenshots
-    pkgs.slurp # Selects a region
-    pkgs.swappy # Annotates screenshots
+    pkgs.grim
+    pkgs.slurp
+    pkgs.swappy
   ];
 }

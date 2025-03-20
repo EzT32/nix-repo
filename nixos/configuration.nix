@@ -46,8 +46,9 @@
   };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  environment.sessionVariables.GDK_SCALE = "2";
-  environment.sessionVariables.QT_SCALE_FACTOR = "2";
+  environment.sessionVariables.GDK_SCALE = "1.5";
+  environment.sessionVariables.QT_SCALE_FACTOR = "1.5";
+
 
   # Allow 'unfree' packages in search (Like proprietary GPU drivers etc).
   nixpkgs.config.allowUnfree = true;
