@@ -1,6 +1,6 @@
-{pkgs_stable, ...}:
+{pkgs, ...}:
 {
   home.packages = [
-    pkgs_stable.android-studio
+    pkgs.android-studio
   ];
 }

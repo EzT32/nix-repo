@@ -29,6 +29,23 @@ local on_attach = function(client, bufnr)
 	end, { noremap = true, silent = true })
 end
 
+
+-- ERRORS
+vim.diagnostic.config() -- Disable floating popups
+
+vim.api.nvim_create_autocmd("DiagnosticChanged", {
+  callback = function()
+    vim.diagnostic.setloclist({ open = false }) -- Populate location list
+  end,
+})
+
+vim.keymap.set("n", "<leader>e", function()
+  vim.cmd("lopen") -- Open location list manually
+end, { noremap = true, silent = true })
+
+
+
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
