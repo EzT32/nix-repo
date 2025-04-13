@@ -1,13 +1,11 @@
 {pkgs, ...}: {
   imports = [
-    ./hyprland/hyprland.nix
-    ./shell/shell.nix
-    ./git/git.nix
-    ./applications/discord.nix
-    ./applications/android-studio.nix
-    ./applications/obsidian.nix
-    ./nvim/nvim.nix
-    ./python/python.nix
+    ../hyprland/hyprland.nix
+    ../shell/shell.nix
+    ../git/git.nix
+    ../applications/discord.nix
+    ../nvim/nvim.nix
+    ../python/python.nix
   ];
 
   home.username = "ezt";
@@ -27,7 +25,6 @@
 
   home.packages = [
     pkgs.spotify
-    pkgs.steam
     pkgs.grim
     pkgs.slurp
     pkgs.swappy

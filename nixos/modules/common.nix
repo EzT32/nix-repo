@@ -3,11 +3,6 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ./hardware-configuration.nix
-    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
-  ];
-
   # Hyperland
   programs.hyprland.enable = true;
 
@@ -49,7 +44,6 @@
   environment.sessionVariables.GDK_SCALE = "1.5";
   environment.sessionVariables.QT_SCALE_FACTOR = "1.5";
 
-
   # Allow 'unfree' packages in search (Like proprietary GPU drivers etc).
   nixpkgs.config.allowUnfree = true;
 
@@ -57,7 +51,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "ezt";
   networking.networkmanager.enable = true;
   networking.wireless.iwd.enable = true;
 
@@ -77,7 +70,6 @@
 
   # Enable sound and bluetooth.
   security.rtkit.enable = true;
-  services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     wireplumber.enable = true;
@@ -118,5 +110,7 @@
   programs.mtr.enable = true;
   programs.gnupg.agent.enable = true;
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  services.openssh.enable = true;
+  networking.firewall.enable = true;
+  networking.firewall.allowedTCPPorts = [22];
 }

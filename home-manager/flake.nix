@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs_unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -16,7 +16,7 @@
     home-manager,
     ...
   } @ inputs: let
-    system = "x86_64-linux";
+      system = "x86_64-linux"; 
 
     pkgs = import nixpkgs {
       inherit system;
@@ -28,11 +28,23 @@
     };
   in {
     # Home Manager configuration
-    homeConfigurations."ezt" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-
-      modules = [./home.nix];
-      extraSpecialArgs = {inherit inputs pkgs_unstable;};
+    homeConfigurations = {
+      work = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [./home/work.nix];
+          extraSpecialArgs = {
+            inherit inputs pkgs_unstable;
+            profile = "work";
+          };
+      };
+      personal = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [./home/personal.nix];
+          extraSpecialArgs = {
+            inherit inputs pkgs_unstable;
+            profile = "personal";
+          };
+      };
     };
   };
 }

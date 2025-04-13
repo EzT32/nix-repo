@@ -125,7 +125,7 @@ in {
       ];
 
       # Trigger on release
-      bindro = [
+      bindr = [
         # Open app launcher
         "SUPER, SUPER_L, exec, kill $(pidof rofi) || rofi -show drun"
       ];

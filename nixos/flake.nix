@@ -2,38 +2,39 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs_unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
-  let
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs_unstable,
+    ...
+  } @ inputs: let
     system = "x86_64-linux";
-    pkgs = import nixpkgs {
+    pkgs_unstable = import nixpkgs_unstable {
       inherit system;
     };
+  in {
+    nixosConfigurations = {
+      laptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs system pkgs_unstable;};
 
-  in
-  {
-    # This flake defines a single NixOS config named "default" for simplicity, as it's implied in the rebuild-command.
-    # For multiple configurations, modify to the following:
-    # nixosConfigurations = {
-    #   <keyname> = nixpkgs.lib.nixosSystem {
-    #     specialArgs { inherit inputs; };
-    #     
-    #     modules = [
-    #       ./nixos/configuration.nix
-    #       <other modules>
-    #     ];
-    #   };
-    # }:  
-    nixosConfigurations."ezt" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs system; };
-	
-      modules = [
-	./configuration.nix
-      ];
+        modules = [
+          ./hosts/laptop/configuration.nix
+        ];
+      };
+      desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs system pkgs_unstable;};
+
+        modules = [
+          ./hosts/desktop/configuration.nix
+        ];
+      };
     };
   };
 }

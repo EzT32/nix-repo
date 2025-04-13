@@ -1,7 +1,7 @@
 { config, ...}:
 let
   path = "${config.home.homeDirectory}/nix-repo/home-manager/hyprland/wallpapers";
-  wallpaper = "NixWallpaper.png";
+  wallpaper = "NixGruvbox.png";
 in
 {
   wayland.windowManager.hyprland.settings = {

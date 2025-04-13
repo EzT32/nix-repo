@@ -12,7 +12,10 @@
           pillow
           seaborn
           torch-bin
+          pygments
         ]
     ))
+    pkgs.pandoc
+    pkgs.texliveFull
   ];
 }
