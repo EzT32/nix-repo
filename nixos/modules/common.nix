@@ -12,6 +12,14 @@
     wayland = true;
   };
 
+  programs.adb.enable = true;
+  virtualisation.libvirtd.enable = true;
+
+  services.dnsmasq.enable = true;
+  services.dnsmasq.settings = {
+    server = ["8.8.8.8" "1.1.1.1" ];
+  };
+
   # Portals
   xdg.portal = {
     enable = true;
@@ -86,7 +94,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ezt = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager"];
+    extraGroups = ["wheel" "networkmanager" "video"];
   };
 
   environment.systemPackages = with pkgs; [
@@ -112,5 +120,5 @@
 
   services.openssh.enable = true;
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [22];
+  networking.firewall.allowedTCPPorts = [22 5555];
 }

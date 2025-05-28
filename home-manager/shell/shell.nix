@@ -20,10 +20,10 @@
         User theodobe
         ProxyJump theodobe@login.uio.no
 
-      # local -> server
-      # scp /path/to/local/file final:/path/to/remote/destination
-      # server -> local
-      # scp final:/path/to/remote/file /path/to/local/destination
+      Host github.com
+        User git
+        IdentityFile ~/.ssh/id_ed25519_github
+        IdentitiesOnly yes
     '';
   };
 
