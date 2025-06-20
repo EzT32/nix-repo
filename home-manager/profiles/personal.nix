@@ -1,6 +1,6 @@
 {pkgs, pkgs_unstable, ...}: {
   imports = [
-    ./common.nix
+    ../home.nix
   ];
 
   home.packages = with pkgs_unstable; [

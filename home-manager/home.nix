@@ -1,13 +1,13 @@
 {pkgs, ...}: {
   imports = [
-    ../hyprland/hyprland.nix
-    ../shell/shell.nix
-    ../git/git.nix
-    ../applications/discord.nix
-    ../nvim/nvim.nix
-    ../python/python.nix
-    ../applications/vlc.nix
-    ../applications/mpv.nix
+    hyprland/hyprland.nix
+    shell/shell.nix
+    git/git.nix
+    applications/discord.nix
+    nvim/nvim.nix
+    python/python.nix
+    applications/vlc.nix
+    applications/mpv.nix
   ];
 
   home.username = "ezt";
