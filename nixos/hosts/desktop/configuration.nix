@@ -1,4 +1,4 @@
-{}: {
+{...}: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/common.nix
@@ -6,5 +6,5 @@
   ];
 
   networking.hostName = "desktop";
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 }
