@@ -4,7 +4,7 @@
   update_mic_led = "brightnessctl -d platform::micmute set $(${mic_status})";
 
   cursorTheme = "Bibata-Modern-Ice";
-  cursorSize = 24;
+  cursorSize = 8;
 in {
   imports = [
     ./kitty.nix
@@ -17,6 +17,10 @@ in {
   ];
 
   home.pointerCursor = {
+    hyprcursor = {
+      enable = true;
+      size = cursorSize;
+    };
     name = cursorTheme;
     package = pkgs.bibata-cursors; # Ensure this matches your chosen theme
     size = cursorSize;
@@ -32,29 +36,6 @@ in {
     };
   };
 
-  xdg.configFile."gtk-3.0/settings.ini".text = ''
-    [Settings]
-    gtk-cursor-theme-name=${cursorTheme}
-    gtk-cursor-theme-size=${toString cursorSize}
-    gtk-xft-dpi=98304
-  '';
-
-  wayland.windowManager.hyprland.settings = {
-    # Ensure Hyprland also respects the cursor theme
-    env = [
-      "XCURSOR_THEME,${cursorTheme}"
-      "XCURSOR_SIZE,${toString cursorSize}"
-    ];
-  };
-
-  # Export environment variables to make sure everything uses the correct cursor
-  home.sessionVariables = {
-    XCURSOR_THEME = "Bibata-Modern-Ice";
-    XCURSOR_SIZE = "24";
-    MOZ_ENABLE_WAYLAND = "1"; # Ensure Firefox runs in Wayland mode
-    GDK_SCALE = "1"; # Prevent GTK apps from scaling the cursor
-    GDK_DPI_SCALE = "1";
-  };
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -69,6 +50,8 @@ in {
           natural_scroll = true;
           disable_while_typing = false;
         };
+
+        sensitivity = -0.5;
       };
 
       # Activate on button press
