@@ -148,6 +148,11 @@ in {
         "SUPER, mouse:272, movewindow"
         "SUPER, mouse:273, resizewindow"
       ];
+
+      monitor = [
+        "desc:Acer Technologies KG271 TF5EE0098522, preferred, 0x0, 1"
+        "desc:BNQ BenQ GL2450 K2E02672019, preferred, auto-right, 1"
+      ];
     };
   };
 }
