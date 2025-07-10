@@ -5,7 +5,6 @@
     git/git.nix
     applications/discord.nix
     nvim/nvim.nix
-    python/python.nix
     applications/vlc.nix
     applications/mpv.nix
   ];
