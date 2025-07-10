@@ -123,5 +123,5 @@
   networking.firewall.allowedTCPPorts = [22 5555];
 
   # Latest kernel version
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
 }
