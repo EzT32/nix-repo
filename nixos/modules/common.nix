@@ -17,7 +17,7 @@
 
   services.dnsmasq.enable = true;
   services.dnsmasq.settings = {
-    server = ["8.8.8.8" "1.1.1.1" ];
+    server = ["8.8.8.8" "1.1.1.1"];
   };
 
   # Portals
@@ -121,4 +121,7 @@
   services.openssh.enable = true;
   networking.firewall.enable = true;
   networking.firewall.allowedTCPPorts = [22 5555];
+
+  # Latest kernel version
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 }
