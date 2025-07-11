@@ -13,6 +13,11 @@ in {
         # Select a region, take a screenshot, and open in swappy for annotation
         "SUPERSHIFT, S, exec, grim -g \"$(slurp)\" - | swappy -f -"
       ];
+
+      binde = [
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+      ];
     };
   };
 }
