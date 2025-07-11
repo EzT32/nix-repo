@@ -17,13 +17,15 @@ in {
         # Screen mode
         "SUPER, F, fullscreen, 1"
         "SUPERSHIFT, F, fullscreen, 0"
-        "SUPER, G, togglefloating"
+        "SUPER, G, togglefloating" 
+      ];
+
+      bindr = [
+        "ALT, TAB, cyclenext"
+        "ALT, TAB, bringactivetotop"
       ];
     };
 
-    bindr = [
-      "ALT, TAB, cyclenext"
-      "ALT, TAB, bringactivetotop"
-    ];
+
   };
 }

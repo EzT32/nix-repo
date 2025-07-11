@@ -32,10 +32,5 @@ in {
         "SUPERSHIFT, 0, movetoworkspace, 10"
       ];
     };
-
-    bindr = [
-      "ALT, TAB, cyclenext"
-      "ALT, TAB, bringactivetotop"
-    ];
   };
 }

@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    hyprland/hyprland.nix
+    modules/hyprland/hyprland.nix
     shell/shell.nix
     git/git.nix
     applications/discord.nix
