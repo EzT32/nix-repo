@@ -1,4 +1,8 @@
-{pkgs, pkgs_unstable, ...}: {
+{config, pkgs, pkgs_unstable, ...}:
+let
+  wallpaper = "NixGruvbox.png";
+in
+{
   imports = [
     ../home.nix
   ];
