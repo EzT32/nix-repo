@@ -41,6 +41,11 @@ in {
     settings = {
       xwayland.force_zero_scaling = true;
 
+      general = {
+        gaps_in = 2;
+        gaps_out = 5;
+      };
+
       input = {
         kb_layout = "no";
 
