@@ -1,8 +1,8 @@
-{config, pkgs, pkgs_unstable, ...}:
-let
-  wallpaper = "NixGruvbox.png";
-in
+{pkgs_unstable, ...}:
 {
+  my.modules.kitty.enable = true;
+  #my.modules.dolphin.enable = true;
+
   imports = [
     ../home.nix
   ];

@@ -46,8 +46,6 @@
       description = "Enable workspace bindings";
     };
 
-
-
     toggleAudio = lib.mkOption {
       type = lib.types.str;
       default = "echo toggle audio";
