@@ -1,6 +1,7 @@
 {...}:
 {
   imports = [
-    ./waybar.nix
+    ./nvim
+    ./python
   ];
 }

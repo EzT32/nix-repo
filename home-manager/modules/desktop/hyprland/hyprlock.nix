@@ -10,7 +10,7 @@ in {
 
     path = mkOption {
       type = types.path;
-      default = "${config.home.homeDirectory}/nix-repo/home-manager/modules/hyprland/wallpapers";
+      default = "${config.home.homeDirectory}/nix-repo/home-manager/wallpapers";
       description = "Path to the directory containing wallpapers for hyprlock.";
     };
 

@@ -1,10 +1,9 @@
 {...}:
 {
   imports = [
-    ./dolphin.nix
-    ./hyprland
-    ./kitty.nix
-    ./rofi.nix
-    ./waybar
+    ./apps
+    ./cli
+    ./desktop
+    ./dev
   ];
 }

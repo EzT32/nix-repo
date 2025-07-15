@@ -56,8 +56,7 @@
       "ezt@laptop" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ./home-manager/home.nix
-          ./home-manager/profiles/work.nix
+          (import ./home-manager/home.nix)
         ];
         extraSpecialArgs = sharedArgs // {profile = "work";};
       };
@@ -65,8 +64,7 @@
       "ezt@desktop" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ./home-manager/home.nix
-          ./home-manager/profiles/personal.nix
+          (import ./home-manager/home.nix)
         ];
         extraSpecialArgs = sharedArgs // {profile = "personal";};
       };
