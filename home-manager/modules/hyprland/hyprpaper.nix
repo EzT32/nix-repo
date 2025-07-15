@@ -1,6 +1,6 @@
-{ config, ...}:
+{config, ...}:
 let
-  path = "${config.home.homeDirectory}/nix-repo/home-manager/modules/hyprland/wallpapers";
+  path = "${config.home.homeDirectory}/nix-repo/home-manager/wallpapers";
   wallpaper = "NixGruvbox.png";
 in
 {

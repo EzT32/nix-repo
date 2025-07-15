@@ -1,6 +1,5 @@
-{ config, pkgs, lib, ... }:
+{pkgs, ...}:
 {
-  # Rofi-wayland
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
