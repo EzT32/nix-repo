@@ -1,7 +1,7 @@
 {lib, config, ... }:
 
 let
-  cfg = config.my.keybinds; # Module from ../options.nix
+  cfg = config.my.keybinds;
 
 in {
   config = lib.mkIf cfg.enableMedia {

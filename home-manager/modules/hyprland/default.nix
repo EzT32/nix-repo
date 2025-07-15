@@ -1,10 +1,11 @@
 {...}:
 {
   imports = [
-    ./hyprland.nix
-    ./hypridle.nix
     ./hyprlock.nix
-    ./hyprpaper.nix
     ./keybindings
+    ./hypridle.nix
+    ./hyprpaper.nix
+    ./pointer-cursor.nix
+    ./wayland.nix
   ];
 }
