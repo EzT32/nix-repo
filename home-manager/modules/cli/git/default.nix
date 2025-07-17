@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  home.packages = with pkgs; [
+    libsecret
+  ];
+
   programs.git = {
     enable = true;
     userName = "EzT32";

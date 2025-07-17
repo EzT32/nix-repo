@@ -1,3 +1,5 @@
+# modules/common.nix
+
 {
   inputs,
   pkgs,

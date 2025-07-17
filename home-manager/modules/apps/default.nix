@@ -1,4 +1,4 @@
-{pkgs, pkgs_unstable, ...}:
+{pkgs, ...}:
 {
   home.packages = with pkgs; [
     discord
