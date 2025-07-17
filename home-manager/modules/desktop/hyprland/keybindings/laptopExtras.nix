@@ -14,9 +14,6 @@ let
 in {
   config = lib.mkIf cfg.enableLaptopExtras {
     wayland.windowManager.hyprland.settings = {
-      bind = [
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-      ];
       bindl = [
         ", XF86AudioMicMute, exec, ${toggleMic}"
       ];

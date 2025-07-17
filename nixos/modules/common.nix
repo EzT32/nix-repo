@@ -105,6 +105,7 @@
     bluez
     blueman
     brightnessctl
+    playerctl
   ];
 
   services.udisks2.enable = true;

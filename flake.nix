@@ -1,3 +1,4 @@
+# ./flake.nix
 {
   description = "Unified NixOS + Home Manager flake for ezt";
 
@@ -56,7 +57,7 @@
       "ezt@laptop" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          (import ./home-manager/home.nix)
+          (import ./home-manager/default.nix)
         ];
         extraSpecialArgs = sharedArgs // {profile = "work";};
       };
@@ -64,7 +65,7 @@
       "ezt@desktop" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          (import ./home-manager/home.nix)
+          (import ./home-manager/default.nix)
         ];
         extraSpecialArgs = sharedArgs // {profile = "personal";};
       };

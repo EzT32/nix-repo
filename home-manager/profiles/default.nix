@@ -1,20 +1,13 @@
 # profiles/default.nix
 
-{...}:
+{profile, ...}:
+let
+  profileModule = ./. + "/${profile}.nix";
+in 
 {
-  imports = [ ../modules ];
+  imports = [ profileModule ];
 
   my.modules.kitty.enable = true;
-
-  # Enable specific keybind sets
-  my.keybinds = {
-    enableMedia = true;
-    enableMouse = true;
-    enableWindow = true;
-    enableWorkspace = true;
-    enableLaunchers = true;
-    enableLaptopExtras = true;
-  };
 
   home.username = "ezt";
   home.homeDirectory = "/home/ezt";
