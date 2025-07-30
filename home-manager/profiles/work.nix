@@ -2,8 +2,8 @@
 
 {...}:
 {
-  config.my.modules = {
-    hypridle.eanble = true;
+  my.modules = {
+    hypridle.enable = true;
     hyprlock.enable = true;
   };
 
