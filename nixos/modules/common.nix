@@ -3,6 +3,7 @@
 {
   inputs,
   pkgs,
+  nixpkgs-unstable,
   ...
 }: {
   # Hyperland
@@ -96,8 +97,16 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ezt = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager" "video"];
+    extraGroups = ["wheel" "networkmanager" "video" ];
   };
+
+  #services.udev.extraRules = ''
+  #  # Allow full access to the Razer BlackShark V2 Pro
+  #  SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1532", ATTRS{idProduct}=="0555", MODE="0666", TAG+="uaccess"
+  #
+  #  # Optional: ensure input event nodes are treated as key devices
+  #  SUBSYSTEM=="input", ATTRS{idVendor}=="1532", ATTRS{idProduct}=="0555", ENV{ID_INPUT_KEY}="1"
+  #'';
 
   environment.systemPackages = with pkgs; [
     vim
@@ -108,7 +117,13 @@
     blueman
     brightnessctl
     playerctl
+    libinput
+    evtest
   ];
+
+  #boot.kernelParams = [
+  #  "usbhid.quirks=0x1532:0x0555:0x0004"
+  #];
 
   services.udisks2.enable = true;
 

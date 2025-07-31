@@ -1,9 +1,12 @@
+# desktop/wayland.nix
+
 {...}:
 {
   config = {
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
+
 
       settings = {
         xwayland.force_zero_scaling = true;
