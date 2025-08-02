@@ -9,5 +9,6 @@
     slurp
     swappy
     prismlauncher
+    usbimager
   ];
 }

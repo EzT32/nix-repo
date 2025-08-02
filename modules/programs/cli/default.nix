@@ -1,0 +1,6 @@
+{...}:
+{
+  imports = [
+    ./core-cli.nix
+  ];
+}

@@ -1,5 +1,4 @@
 # ./flake.nix
-
 {
   description = "Unified NixOS + Home Manager flake for ezt";
 
@@ -12,36 +11,44 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... } @ inputs:
+  outputs = { nixpkgs, home-manager, nixos-hardware, ... }:
   let
     system = "x86_64-linux";
-
-    sharedArgs = {
-      inherit system inputs;
+    
+    pkgs = import nixpkgs {
+      system = system;
+      config = {
+        allowUnfree = true;
+      };
     };
-  in {
+  in 
+  { 
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = sharedArgs;
+        system = system;
         modules = [
-          ./nixos/hosts/laptop/configuration.nix
+          ./hosts/laptop
+          ./modules
+          nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
         ];
+        specialArgs = { inherit system; };
       };
 
       desktop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = sharedArgs;
+        system = system;
         modules = [
-          ./nixos/hosts/desktop/configuration.nix
+          ./hosts/desktop
+          ./modules
         ];
+        specialArgs = { inherit system; };
       };
     };
 
+
     homeConfigurations = {
       "ezt@laptop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { inherit system; };
-        modules = [./home-manager/default.nix];
+        pkgs = pkgs; 
+        modules = [ ./home-manager ];
         extraSpecialArgs = {
           inherit system;
           profile = "work";
@@ -49,8 +56,8 @@
       };
 
       "ezt@desktop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { inherit system; };
-        modules = [./home-manager/default.nix];
+        pkgs = pkgs; 
+        modules = [ ./home-manager ];
         extraSpecialArgs = {
           inherit system;
           profile = "personal";
@@ -59,4 +66,3 @@
     };
   };
 }
-

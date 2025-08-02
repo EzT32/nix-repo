@@ -1,1 +1,1 @@
-This folder is for system modules only
+System wide modules

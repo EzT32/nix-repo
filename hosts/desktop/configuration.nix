@@ -1,9 +1,6 @@
-{ config, pkgs, ...}: {
-  imports = [
-    ./hardware-configuration.nix
-    ../../modules/common.nix
-    ../../modules/steam.nix
-  ];
+{ config, ...}: {
+  
+  nixpkgs.config.allowUnfree = true;
 
   # Nvidia drivers
   hardware.nvidia = {
