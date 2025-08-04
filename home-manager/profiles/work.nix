@@ -7,12 +7,12 @@
     hyprlock.enable = true;
   };
 
-  my.keybinds = {
-    enableMedia = true;
-    enableMouse = true;
-    enableWindow = true;
-    enableWorkspace = true;
-    enableLaunchers = true;
-    enableLaptopExtras = true;
+  custom.keybinds = {
+    laptop.enable = true;
+    launchers.enable = true;
+    media.enable = true;
+    mouse.enable = true;
+    window.enable = true;
+    workspace.enable = true;
   };
 }

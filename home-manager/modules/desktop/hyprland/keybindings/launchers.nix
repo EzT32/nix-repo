@@ -1,10 +1,12 @@
 {lib, config, ... }:
-
 let
-  cfg = config.my.keybinds;
-
+  cfg = config.custom.keybinds.launchers;
 in {
-  config = lib.mkIf cfg.enableLaunchers {
+  options.custom.keybinds.launchers = {
+    enable = lib.mkEnableOption "Launcher keybinds";
+  };
+
+  config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
       bind = [
         "SUPER, T, exec, kitty"

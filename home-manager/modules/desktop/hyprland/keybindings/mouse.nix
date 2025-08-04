@@ -1,14 +1,16 @@
 {lib, config, ... }:
-
 let
-  cfg = config.my.keybinds;
-
+  cfg = config.custom.keybinds.mouse;
 in {
-  config = lib.mkIf cfg.enableMouse {
+  options.custom.keybinds.mouse = {
+    enable = lib.mkEnableOption "Mouse keybinds";
+  };
+
+  config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
-    bindm = [
-      "SUPER, mouse:272, movewindow"
-      "SUPER, mouse:273, resizewindow"
+      bindm = [
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
       ];
     };
   };

@@ -1,10 +1,12 @@
 {lib, config, ... }:
-
 let
-  cfg = config.my.keybinds;
-
+  cfg = config.custom.keybinds.window;
 in {
-  config = lib.mkIf cfg.enableWindow {
+  options.custom.keybinds.window = {
+    enable = lib.mkEnableOption "Window management keybinds";
+  };
+
+  config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
       bind = [
         "SUPER, Q, killactive"
@@ -25,7 +27,5 @@ in {
         "ALT, TAB, bringactivetotop"
       ];
     };
-
-
   };
 }

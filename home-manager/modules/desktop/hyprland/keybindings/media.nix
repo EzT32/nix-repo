@@ -1,13 +1,28 @@
 # keybindings/media.nix
-
 {lib, config, ... }:
-
-with lib;
-
 let
-  cfg = config.my.keybinds;
+  cfg = config.custom.keybinds.media;
 in {
-  config = mkIf cfg.enableMedia {
+  options.custom.keybinds.media = {
+    enable = lib.mkEnableOption "Media keybinds";
+
+    volumeStep = lib.mkOption {
+      type = lib.types.int;
+      default = 5;
+      description = "Percentage change in volume";
+      example = 5;
+    };
+
+    maxVolume = lib.mkOption {
+      type = lib.types.float;
+      default = 1.0;
+      description = "Max volume level";
+      example = 1.0;
+    };
+  };
+
+
+  config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
       bind = [
         # Screenshots
@@ -26,8 +41,9 @@ in {
       ];
 
       bindel = [
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%-"
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l ${toString cfg.maxVolume} @DEFAULT_AUDIO_SINK@ ${toString cfg.volumeStep}%+"
+
+        ", XF86AudioLowerVolume, exec, wpctl set-volume -l ${toString cfg.maxVolume} @DEFAULT_AUDIO_SINK@ ${toString cfg.volumeStep}%-"
       ];
     };
   };

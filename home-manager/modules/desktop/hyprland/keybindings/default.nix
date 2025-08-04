@@ -1,11 +1,10 @@
 {...}:
 {
   imports = [
-    ./laptopExtras.nix
+    ./laptop.nix
     ./launchers.nix
     ./media.nix
     ./mouse.nix
-    ./options
     ./window.nix
     ./workspace.nix
   ];

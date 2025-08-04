@@ -2,11 +2,11 @@
 
 {...}:
 {
-  my.keybinds = {
-    enableMedia = true;
-    enableMouse = true;
-    enableWindow = true;
-    enableWorkspace = true;
-    enableLaunchers = true;
+  custom.keybinds = {
+    launchers.enable = true;
+    media.enable = true;
+    mouse.enable = true;
+    window.enable = true;
+    workspace.enable = true;
   };
 }
