@@ -1,12 +1,22 @@
-# desktop/wayland.nix
+{lib, config, ...}:
+let
+  cfg = config.custom.hyprland;
+in {
+  options.custom.hyprland = {
+    enable = lib.mkEnableOption "Enable custom hyprland module.";
 
-{...}:
-{
-  config = {
+    sensitivity = lib.mkOption {
+      type = lib.types.float;
+      default = 0;
+      description = "Hyprland sensitivity (supports negative numbers).";
+      example = -0.5;
+    };
+  };
+
+  config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
-
 
       settings = {
         xwayland.force_zero_scaling = true;
@@ -19,12 +29,12 @@
         input = {
           kb_layout = "no";
 
+          sensitivity = cfg.sensitivity;
+
           touchpad = {
             natural_scroll = true;
             disable_while_typing = false;
           };
-
-          sensitivity = -0.5;
         };
       };
     };

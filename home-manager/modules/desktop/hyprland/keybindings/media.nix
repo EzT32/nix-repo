@@ -1,5 +1,5 @@
 # keybindings/media.nix
-{lib, config, ... }:
+{lib, config, pkgs, ... }:
 let
   cfg = config.custom.keybinds.media;
 in {
@@ -46,5 +46,9 @@ in {
         ", XF86AudioLowerVolume, exec, wpctl set-volume -l ${toString cfg.maxVolume} @DEFAULT_AUDIO_SINK@ ${toString cfg.volumeStep}%-"
       ];
     };
+
+    home.packages = with pkgs; [
+      grim
+    ];
   };
 }

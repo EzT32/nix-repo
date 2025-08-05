@@ -1,18 +1,36 @@
-{config, ...}:
+{lib, config, ...}:
 let
-  path = "${config.home.homeDirectory}/nix-repo/home-manager/wallpapers";
-  wallpaper = "NixGruvbox.png";
-in
-{
-  wayland.windowManager.hyprland.settings = {
-    exec-once = ["hyprpaper"];
+  cfg = config.custom.hyprland.hyprpaper;
+in {
+  options.custom.hyprland.hyprpaper = lib.mkIf cfg.enable {
+    enable = lib.mkEnableOption "Enable custom hyprpaper module.";
+
+    path = lib.mkOption {
+      type = lib.types.path;
+      default = "${config.home.homeDirectory}/nix-repo/home-manager/wallpapers";
+      description = "Path to the directory containing wallpapers for hyprpaper.";
+      example = "~/path/to/wallpaper/folder";
+    };
+
+    wallpaper = lib.mkOption {
+      type = lib.types.str;
+      default = "NixGruvbox.png";
+      description = "Wallpaper file to use for hyprlock backbround.";
+      example = "Wallpaper.png";
+    };
   };
 
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      preload = ["${path}/${wallpaper}"];
-      wallpaper = [",${path}/${wallpaper}"];
+  config = lib.mkIf cfg.enable {
+    wayland.windowManager.hyprland.settings = {
+      exec-once = ["hyprpaper"];
+    };
+
+    services.hyprpaper = {
+      enable = true;
+      settings = {
+        preload = ["${cfg.path}/${cfg.wallpaper}"];
+        wallpaper = [",${cfg.path}/${cfg.wallpaper}"];
+      };
     };
   };
 }

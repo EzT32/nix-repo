@@ -1,30 +1,26 @@
 { config, lib, pkgs, ... }:
-
-with lib;
-
 let
-  cfg = config.my.modules.hypridle;
+  cfg = config.custom.hyprland.hypridle;
 in {
-  options.my.modules.hypridle = {
-    enable = mkEnableOption "Enable hypridle service";
+  options.custom.hyprland.hypridle = {
+    enable = lib.mkEnableOption "Enable hypridle service";
 
-    lockTimeout = mkOption {
-      type = types.int;
+    lockTimeout = lib.mkOption {
+      type = lib.types.int;
       default = 900;
       description = "Seconds before locking screen";
     };
 
-    dpmsTimeout = mkOption {
-      type = types.int;
+    dpmsTimeout = lib.mkOption {
+      type = lib.types.int;
       default = 900;
       description = "Seconds before turning off display";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services.hypridle = {
       enable = true;
-      package = pkgs.hypridle;
 
       settings = {
         general = {

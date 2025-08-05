@@ -1,9 +1,11 @@
-{pkgs, ...}:
+{...}:
 {
   hardware.bluetooth.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    blueman
-    bluez
-  ];
+  xdg.configFile."autostart/blueman.desktop".text = ''
+    [Desktop Entry]
+    Hidden=true
+  '';
+
+  services.blueman.enable = true;
 }

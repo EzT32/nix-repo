@@ -1,36 +1,35 @@
-{ config, lib, pkgs, ... }:
-
-with lib;
-
+{ config, lib, ... }:
 let
-  cfg = config.my.modules.hyprlock;
+  cfg = config.custom.hyprland.hyprlock;
 in {
-  options.my.modules.hyprlock = {
-    enable = mkEnableOption "Enable hyprlock";
+  options.custom.hyprland.hyprlock = {
+    enable = lib.mkEnableOption "Enable custom hyprlock module.";
 
-    path = mkOption {
-      type = types.path;
+    path = lib.mkOption {
+      type = lib.types.path;
       default = "${config.home.homeDirectory}/nix-repo/home-manager/wallpapers";
       description = "Path to the directory containing wallpapers for hyprlock.";
+      example = "~/path/to/wallpaper/folder";
     };
 
-    wallpaper = mkOption {
-      type = types.str;
-      default = "falcon.jpg";
+    wallpaper = lib.mkOption {
+      type = lib.types.str;
+      default = "NixGruvbox.png";
       description = "Wallpaper file to use for hyprlock background.";
+      example = "Wallpaper.png";
     };
 
-    grace = mkOption {
-      type = types.int;
-      default = 60;
+    grace = lib.mkOption {
+      type = lib.types.int;
+      default = 60; 
       description = "Number of seconds grace period before locking again.";
+      example = 60;
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.hyprlock = {
       enable = true;
-      package = pkgs.hyprlock;
 
       settings = {
         general = {
