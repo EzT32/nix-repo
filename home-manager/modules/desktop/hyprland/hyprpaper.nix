@@ -2,7 +2,7 @@
 let
   cfg = config.custom.hyprland.hyprpaper;
 in {
-  options.custom.hyprland.hyprpaper = lib.mkIf cfg.enable {
+  options.custom.hyprland.hyprpaper = {
     enable = lib.mkEnableOption "Enable custom hyprpaper module.";
 
     path = lib.mkOption {

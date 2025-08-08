@@ -1,6 +1,6 @@
 { pkgs, config, lib, ...}:
 let
-  cfg = config.custom.pointer;
+  cfg = config.custom.cursor;
 in {
   options.custom.cursor = {
     enable = lib.mkEnableOption "Enable custom pointer module.";

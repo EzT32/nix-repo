@@ -1,9 +1,9 @@
 # keybindings/media.nix
 {lib, config, pkgs, ... }:
 let
-  cfg = config.custom.keybinds.media;
+  cfg = config.custom.hyprland.keybinds.media;
 in {
-  options.custom.keybinds.media = {
+  options.custom.hyprland.keybinds.media = {
     enable = lib.mkEnableOption "Media keybinds";
 
     volumeStep = lib.mkOption {

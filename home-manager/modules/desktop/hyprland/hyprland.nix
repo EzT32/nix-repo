@@ -7,7 +7,7 @@ in {
 
     sensitivity = lib.mkOption {
       type = lib.types.float;
-      default = 0;
+      default = 0.0;
       description = "Hyprland sensitivity (supports negative numbers).";
       example = -0.5;
     };

@@ -1,8 +1,8 @@
 {lib, config, ... }:
 let
-  cfg = config.custom.keybinds.window;
+  cfg = config.custom.hyprland.keybinds.window;
 in {
-  options.custom.keybinds.window = {
+  options.custom.hyprland.keybinds.window = {
     enable = lib.mkEnableOption "Window management keybinds";
   };
 

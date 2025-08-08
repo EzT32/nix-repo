@@ -1,18 +1,24 @@
-# profiles/work.nix
-
 {...}:
 {
-  my.modules = {
-    hypridle.enable = true;
-    hyprlock.enable = true;
-  };
+  custom = {
+    hyprland = {
+      enable = true;
 
-  custom.keybinds = {
-    laptop.enable = true;
-    launchers.enable = true;
-    media.enable = true;
-    mouse.enable = true;
-    window.enable = true;
-    workspace.enable = true;
+      hyprpaper.enable = true;
+      hypridle.enable = true;
+
+      keybinds = {
+        laptop.enable = true;
+        launchers.enable = true;
+        media.enable = true;
+        mouse.enable = true;
+        window.enable = true;
+        workspace.enable = true;
+      };
+    };
+
+    cursor = {
+      enable = true;
+    };
   };
 }
