@@ -49,6 +49,8 @@ in {
 
     home.packages = with pkgs; [
       grim
+      slurp
+      swappy
     ];
   };
 }

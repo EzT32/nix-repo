@@ -20,5 +20,11 @@
     cursor = {
       enable = true;
     };
+
+    programs = {
+      discord.enable = true;
+      prismlauncher.enable = true;
+      spotify.enable = true;
+    };
   };
 }

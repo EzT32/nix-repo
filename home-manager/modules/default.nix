@@ -1,9 +1,9 @@
 {...}:
 {
   imports = [
-    ./apps
     ./cli
     ./desktop
     ./dev
+    ./programs
   ];
 }
