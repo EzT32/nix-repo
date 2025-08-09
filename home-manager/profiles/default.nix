@@ -15,6 +15,13 @@ in
       eza.enable = true;
       zoxide.enable = true;
     };
+
+    git = {
+      enable = true;
+
+      userName = "EzT32";
+      userEmail = "theodor.berghansen@icloud.com";
+    };
   };
 
   home.username = "ezt";

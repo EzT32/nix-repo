@@ -1,7 +1,7 @@
 {...}:
 {
   imports = [
-    ./git
+    ./git.nix
     ./kitty.nix
     ./rofi
     ./shell
