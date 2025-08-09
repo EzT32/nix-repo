@@ -2,6 +2,6 @@
 {
   imports = [
     ./nvim
-    ./python
+    ./python.nix
   ];
 }
