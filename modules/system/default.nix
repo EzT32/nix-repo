@@ -6,5 +6,6 @@
     ./networking.nix
     ./nix.nix
     ./security.nix
+    ./clipboard.nix
   ];
 }

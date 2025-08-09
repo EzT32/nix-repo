@@ -1,5 +1,3 @@
-# profiles/default.nix
-
 {profile, ...}:
 let
   profileModule = ./. + "/${profile}.nix";
@@ -7,8 +5,17 @@ in
 {
   imports = [ profileModule ];
 
-  custom.kitty.enable = true;
-  custom.rofi.enable = true;
+  custom = {
+    kitty.enable = true;
+    rofi.enable = true;
+
+    shell = {
+      bash.enable = true;
+      zsh.enable = true;
+      eza.enable = true;
+      zoxide.enable = true;
+    };
+  };
 
   home.username = "ezt";
   home.homeDirectory = "/home/ezt";
