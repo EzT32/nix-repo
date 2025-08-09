@@ -4,19 +4,18 @@ Single root flake to handle userspace and system configurations.
 .
 ├── home-manager
 │   ├── modules
-│   │   ├── apps
 │   │   ├── cli
-│   │   │   ├── git
+│   │   │   ├── rofi
 │   │   │   └── shell
 │   │   ├── desktop
 │   │   │   ├── hyprland
 │   │   │   │   └── keybindings
-│   │   │   │       └── options
 │   │   │   └── waybar
-│   │   └── dev
-│   │       ├── nvim
-│   │       │   └── plugin
-│   │       └── python
+│   │   ├── dev
+│   │   │   ├── nvim
+│   │   │   │   └── plugin
+│   │   │   └── python
+│   │   └── programs
 │   ├── profiles
 │   └── wallpapers
 ├── hosts
