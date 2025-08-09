@@ -8,11 +8,19 @@
   };
   
   networking = {
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+
+      wifi = {
+        powersave = false;
+        backend = "iwd";
+      };
+    };
     wireless.iwd.enable = true;
+
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22 5555 ];
+      allowedTCPPorts = [ 22 ];
     };
   };
 
