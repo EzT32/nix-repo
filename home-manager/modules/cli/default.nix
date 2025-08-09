@@ -3,7 +3,7 @@
   imports = [
     ./git
     ./kitty.nix
-    ./rofi.nix
+    ./rofi
     ./shell
   ];
 }
