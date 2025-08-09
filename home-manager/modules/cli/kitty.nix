@@ -1,38 +1,34 @@
-
 { config, lib, pkgs, ... }:
-
-with lib;
-
 let
-  cfg = config.my.modules.kitty;
+  cfg = config.custom.kitty;
 
   themePath = "${cfg.themeRepo}/themes/${cfg.theme}.conf";
 in {
-  options.my.modules.kitty = {
-    enable = mkEnableOption "Enable Kitty terminal configuration";
+  options.custom.kitty = {
+    enable = lib.mkEnableOption "Enable Kitty terminal configuration";
 
     font = {
-      name = mkOption {
-        type = types.str;
+      name = lib.mkOption {
+        type = lib.types.str;
         default = "FiraCode Nerd Font";
         description = "Font name for Kitty";
       };
 
-      size = mkOption {
-        type = types.int;
+      size = lib.mkOption {
+        type = lib.types.int;
         default = 10;
         description = "Font size for Kitty";
       };
     };
 
-    theme = mkOption {
-      type = types.str;
+    theme = lib.mkOption {
+      type = lib.types.str;
       default = "gruvbox_dark";
       description = "Kitty theme filename (from the kitty-themes repo)";
     };
 
-    themeRepo = mkOption {
-      type = types.path;
+    themeRepo = lib.mkOption {
+      type = lib.types.path;
       default = pkgs.fetchFromGitHub {
         owner = "dexpota";
         repo = "kitty-themes";
@@ -46,7 +42,7 @@ in {
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs.kitty = {
       enable = true;
 

@@ -7,7 +7,8 @@ in
 {
   imports = [ profileModule ];
 
-  my.modules.kitty.enable = true;
+  custom.kitty.enable = true;
+  custom.rofi.enable = true;
 
   home.username = "ezt";
   home.homeDirectory = "/home/ezt";
