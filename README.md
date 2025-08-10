@@ -12,9 +12,8 @@ Single root flake to handle userspace and system configurations.
 │   │   │   │   └── keybindings
 │   │   │   └── waybar
 │   │   ├── dev
-│   │   │   ├── nvim
-│   │   │   │   └── plugin
-│   │   │   └── python
+│   │   │   └── nvim
+│   │   │       └── lua
 │   │   └── programs
 │   ├── profiles
 │   └── wallpapers
