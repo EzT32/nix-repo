@@ -7,3 +7,11 @@ null_ls.setup({
     null_ls.builtins.diagnostics.statix,
   },
 })
+
+require('lualine').setup {
+  options = {
+    theme = 'gruvbox',
+    section_separators = '',
+    component_separators = '',
+  }
+}

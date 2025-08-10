@@ -12,7 +12,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     programs.neovim = {
-      enable = true;
+      enable = true; 
 
       viAlias = true;
       vimAlias = true;
@@ -35,6 +35,7 @@ in {
         none-ls-nvim
 
         gruvbox-nvim
+        lualine-nvim
       ];
     };
 

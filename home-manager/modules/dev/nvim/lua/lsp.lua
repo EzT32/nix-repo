@@ -12,3 +12,5 @@ lspconfig.lua_ls.setup({
 
 -- Nix LSP (no formatter built-in, use null-ls/none-ls)
 lspconfig.nil_ls.setup({})
+
+
