@@ -35,7 +35,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = { "*.nix" },
   callback = function()
     vim.lsp.buf.format({
-      async = false,
+      async = true,
       filter = function(client)
         return client.name == "null-ls"
       end,
@@ -46,6 +46,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = { "*.lua" },
   callback = function()
-    vim.lsp.buf.format({ async = false }) -- uses lua_ls directly
+    vim.lsp.buf.format({ async = true })
   end,
 })
