@@ -1,9 +1,7 @@
-{profile, ...}:
-let
+{profile, ...}: let
   profileModule = ./. + "/${profile}.nix";
-in 
-{
-  imports = [ profileModule ];
+in {
+  imports = [profileModule];
 
   custom = {
     kitty.enable = true;
@@ -16,6 +14,10 @@ in
       zoxide.enable = true;
     };
 
+    nvim = {
+      enable = true;
+    };
+
     git = {
       enable = true;
 
@@ -24,10 +26,11 @@ in
     };
   };
 
-  home.username = "ezt";
-  home.homeDirectory = "/home/ezt";
-
-  home.stateVersion = "25.05";
+  home = {
+    username = "ezt";
+    homeDirectory = "/home/ezt";
+    stateVersion = "25.05";
+  };
 
   programs.firefox.enable = true;
   nixpkgs.config.allowUnfree = true;
