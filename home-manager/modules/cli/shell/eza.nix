@@ -1,8 +1,8 @@
-{config, lib, ...}:
+{ config, lib, ... }:
 let
   cfg = config.custom.shell.eza;
-in 
-  {
+in
+{
   options.custom.shell.eza = {
     enable = lib.mkEnableOption "Enable custom eza configuration";
   };

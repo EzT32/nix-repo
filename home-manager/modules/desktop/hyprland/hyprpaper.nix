@@ -1,7 +1,8 @@
-{lib, config, ...}:
+{ lib, config, ... }:
 let
   cfg = config.custom.hyprland.hyprpaper;
-in {
+in
+{
   options.custom.hyprland.hyprpaper = {
     enable = lib.mkEnableOption "Enable custom hyprpaper module.";
 
@@ -22,14 +23,14 @@ in {
 
   config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
-      exec-once = ["hyprpaper"];
+      exec-once = [ "hyprpaper" ];
     };
 
     services.hyprpaper = {
       enable = true;
       settings = {
-        preload = ["${cfg.path}/${cfg.wallpaper}"];
-        wallpaper = [",${cfg.path}/${cfg.wallpaper}"];
+        preload = [ "${cfg.path}/${cfg.wallpaper}" ];
+        wallpaper = [ ",${cfg.path}/${cfg.wallpaper}" ];
       };
     };
   };

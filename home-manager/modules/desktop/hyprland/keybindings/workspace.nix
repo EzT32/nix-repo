@@ -1,12 +1,13 @@
-{lib, config, ... }:
+{ lib, config, ... }:
 let
   cfg = config.custom.hyprland.keybinds.workspace;
-in {
-options.custom.hyprland.keybinds.workspace = {
-  enable = lib.mkEnableOption "Workspace keybinds";
-};
+in
+{
+  options.custom.hyprland.keybinds.workspace = {
+    enable = lib.mkEnableOption "Workspace keybinds";
+  };
 
-config = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {
       bind = [
         # Move to workspace

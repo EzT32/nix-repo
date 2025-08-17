@@ -1,4 +1,4 @@
-{...}:
+{ ... }:
 {
   custom = {
     hyprland = {
@@ -20,7 +20,7 @@
     cursor = {
       enable = true;
     };
-    
+
     programs = {
       discord.enable = true;
       mpv.enable = true;

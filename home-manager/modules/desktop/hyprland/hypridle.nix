@@ -1,7 +1,13 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.custom.hyprland.hypridle;
-in {
+in
+{
   options.custom.hyprland.hypridle = {
     enable = lib.mkEnableOption "Enable hypridle service";
 

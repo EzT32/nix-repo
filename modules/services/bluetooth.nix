@@ -1,8 +1,13 @@
-{config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
-  cfg = config.custom.services.bluetooth; 
-in 
-  {
+  cfg = config.custom.services.bluetooth;
+in
+{
   options.custom.services.bluetooth = {
     enable = lib.mkEnableOption "Enable bluetooth";
   };

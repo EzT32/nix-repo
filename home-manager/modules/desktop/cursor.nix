@@ -1,7 +1,13 @@
-{ pkgs, config, lib, ...}:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
   cfg = config.custom.cursor;
-in {
+in
+{
   options.custom.cursor = {
     enable = lib.mkEnableOption "Enable custom pointer module.";
 
@@ -33,10 +39,6 @@ in {
       size = cfg.size;
       package = cfg.package;
       hyprcursor.enable = true;
-      /*hyprcursor = {
-        enable = true;
-        size = cfg.cursorSize;
-      };*/
       x11.enable = true;
       gtk.enable = true;
     };

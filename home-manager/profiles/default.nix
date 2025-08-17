@@ -1,7 +1,9 @@
-{profile, ...}: let
+{ profile, ... }:
+let
   profileModule = ./. + "/${profile}.nix";
-in {
-  imports = [profileModule];
+in
+{
+  imports = [ profileModule ];
 
   custom = {
     kitty.enable = true;

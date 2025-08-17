@@ -1,4 +1,4 @@
-{...}:
+{ ... }:
 {
   imports = [
     ./laptop.nix

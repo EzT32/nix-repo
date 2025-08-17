@@ -1,4 +1,3 @@
-# ./flake.nix
 {
   description = "Unified NixOS + Home Manager flake for ezt";
 
@@ -11,58 +10,63 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, nixos-hardware, ... }:
-  let
-    system = "x86_64-linux";
-    
-    pkgs = import nixpkgs {
-      system = system;
-      config = {
-        allowUnfree = true;
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nixos-hardware,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
       };
-    };
-  in 
-  { 
-    nixosConfigurations = {
-      laptop = nixpkgs.lib.nixosSystem {
-        system = system;
-        modules = [
-          ./hosts/laptop
-          ./modules
-          nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
-        ];
-        specialArgs = { inherit system; };
-      };
+    in
+    {
+      # Remember to update to 'nixfmt' after transition fase.
+      formatter.${system} = pkgs.nixfmt-tree;
 
-      desktop = nixpkgs.lib.nixosSystem {
-        system = system;
-        modules = [
-          ./hosts/desktop
-          ./modules
-        ];
-        specialArgs = { inherit system; };
-      };
-    };
-
-
-    homeConfigurations = {
-      "ezt@laptop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgs; 
-        modules = [ ./home-manager ];
-        extraSpecialArgs = {
+      nixosConfigurations = {
+        laptop = nixpkgs.lib.nixosSystem {
           inherit system;
-          profile = "work";
+          modules = [
+            ./hosts/laptop
+            ./modules
+            nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
+          ];
+          specialArgs = { inherit system; };
+        };
+
+        desktop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/desktop
+            ./modules
+          ];
+          specialArgs = { inherit system; };
         };
       };
 
-      "ezt@desktop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgs; 
-        modules = [ ./home-manager ];
-        extraSpecialArgs = {
-          inherit system;
-          profile = "personal";
+      homeConfigurations = {
+        "ezt@laptop" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./home-manager ];
+          extraSpecialArgs = {
+            inherit system;
+            profile = "work";
+          };
+        };
+
+        "ezt@desktop" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./home-manager ];
+          extraSpecialArgs = {
+            inherit system;
+            profile = "personal";
+          };
         };
       };
     };
-  };
 }

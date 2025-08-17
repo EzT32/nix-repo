@@ -1,7 +1,13 @@
-{config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.custom.programs.vlc;
-in {
+in
+{
   options.custom.programs.vlc = {
     enable = lib.mkEnableOption "Enable vlc";
   };

@@ -1,4 +1,9 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 
 let
   cfg = config.custom.hyprland.keybinds.laptop;
@@ -12,7 +17,8 @@ let
     wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
     ${updateMicLed}
   '';
-in {
+in
+{
   options.custom.hyprland.keybinds.laptop = {
     enable = lib.mkEnableOption "Laptop-specific keybinds";
 
@@ -36,4 +42,3 @@ in {
     };
   };
 }
-

@@ -47,13 +47,17 @@
       cpu = {
         format = "cpu {usage}%";
         interval = 2;
-        states = { critical = 90; };
+        states = {
+          critical = 90;
+        };
       };
 
       memory = {
         format = "mem {percentage}%";
         interval = 2;
-        states = { critical = 80; };
+        states = {
+          critical = 80;
+        };
       };
 
       battery = {
@@ -88,4 +92,3 @@
     };
   };
 }
-

@@ -1,7 +1,8 @@
-{lib, config, ... }:
+{ lib, config, ... }:
 let
   cfg = config.custom.hyprland.keybinds.launchers;
-in {
+in
+{
   options.custom.hyprland.keybinds.launchers = {
     enable = lib.mkEnableOption "Launcher keybinds";
   };

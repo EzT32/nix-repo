@@ -3,16 +3,18 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   cfg = config.custom.nvim;
-in {
+in
+{
   options.custom.nvim = {
     enable = lib.mkEnableOption "Enable custom nvim configuration.";
   };
 
   config = lib.mkIf cfg.enable {
     programs.neovim = {
-      enable = true; 
+      enable = true;
 
       viAlias = true;
       vimAlias = true;
@@ -24,7 +26,6 @@ in {
         luaPackages.luacheck
 
         nil
-        alejandra
         statix
 
         wl-clipboard
@@ -38,6 +39,10 @@ in {
         lualine-nvim
       ];
     };
+
+    home.packages = with pkgs; [
+      nixfmt-rfc-style
+    ];
 
     xdg.configFile."nvim/init.lua".source = ./init.lua;
     xdg.configFile."nvim/lua".source = ./lua;

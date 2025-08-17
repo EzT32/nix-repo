@@ -1,8 +1,13 @@
-{pkgs, lib, config, ...}:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   cfg = config.custom.git;
-in 
-  {
+in
+{
   options.custom.git = {
     enable = lib.mkEnableOption "Enable custom git configurations.";
 

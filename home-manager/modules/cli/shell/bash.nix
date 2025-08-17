@@ -1,8 +1,8 @@
-{config, lib, ...}:
+{ config, lib, ... }:
 let
   cfg = config.custom.shell.bash;
-in 
-  {
+in
+{
   options.custom.shell.bash = {
     enable = lib.mkEnableOption "Enable custom bash configuration";
   };

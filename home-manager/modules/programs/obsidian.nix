@@ -1,7 +1,13 @@
-{config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.custom.programs.obsidian;
-in {
+in
+{
   options.custom.programs.obsidian = {
     enable = lib.mkEnableOption "Enable obsidian";
 

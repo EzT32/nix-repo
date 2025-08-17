@@ -1,15 +1,15 @@
-{ config, ...}: {
-  
-  nixpkgs.config.allowUnfree = true;
+{ config, ... }:
+{
 
+  nixpkgs.config.allowUnfree = true;
 
   # Nvidia drivers
   hardware.nvidia = {
     open = false;
-    
+
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # boot.kernelParams = [ "nvidia_drm.modeset=1" ];
   # boot.extraModprobeConfig = ''

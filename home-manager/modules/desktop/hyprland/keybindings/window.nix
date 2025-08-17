@@ -1,7 +1,8 @@
-{lib, config, ... }:
+{ lib, config, ... }:
 let
   cfg = config.custom.hyprland.keybinds.window;
-in {
+in
+{
   options.custom.hyprland.keybinds.window = {
     enable = lib.mkEnableOption "Window management keybinds";
   };
@@ -19,7 +20,7 @@ in {
         # Screen mode
         "SUPER, F, fullscreen, 1"
         "SUPERSHIFT, F, fullscreen, 0"
-        "SUPER, G, togglefloating" 
+        "SUPER, G, togglefloating"
       ];
 
       bindr = [

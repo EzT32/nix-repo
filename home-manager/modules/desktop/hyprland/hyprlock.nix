@@ -1,7 +1,8 @@
 { config, lib, ... }:
 let
   cfg = config.custom.hyprland.hyprlock;
-in {
+in
+{
   options.custom.hyprland.hyprlock = {
     enable = lib.mkEnableOption "Enable custom hyprlock module.";
 
@@ -21,7 +22,7 @@ in {
 
     grace = lib.mkOption {
       type = lib.types.int;
-      default = 60; 
+      default = 60;
       description = "Number of seconds grace period before locking again.";
       example = 60;
     };
@@ -66,4 +67,3 @@ in {
     };
   };
 }
-

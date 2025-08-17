@@ -1,7 +1,13 @@
-{config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.custom.programs.discord;
-in {
+in
+{
   options.custom.programs.discord = {
     enable = lib.mkEnableOption "Enable discord";
 

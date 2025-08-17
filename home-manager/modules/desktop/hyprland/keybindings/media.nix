@@ -1,8 +1,14 @@
 # keybindings/media.nix
-{lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 let
   cfg = config.custom.hyprland.keybinds.media;
-in {
+in
+{
   options.custom.hyprland.keybinds.media = {
     enable = lib.mkEnableOption "Media keybinds";
 
@@ -20,7 +26,6 @@ in {
       example = 1.0;
     };
   };
-
 
   config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland.settings = {

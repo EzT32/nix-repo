@@ -1,8 +1,8 @@
-{config, lib, ...}:
+{ config, lib, ... }:
 let
   cfg = config.custom.shell.zoxide;
-in 
-  {
+in
+{
   options.custom.shell.zoxide = {
     enable = lib.mkEnableOption "Enable custom eza configuration";
   };
@@ -10,7 +10,7 @@ in
   config = lib.mkIf cfg.enable {
     programs.zoxide = {
       enable = true;
-      options = ["--cmd cd"];
+      options = [ "--cmd cd" ];
     };
   };
 }

@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.custom.kitty;
 
   themePath = "${cfg.themeRepo}/themes/${cfg.theme}.conf";
-in {
+in
+{
   options.custom.kitty = {
     enable = lib.mkEnableOption "Enable Kitty terminal configuration";
 
@@ -66,4 +72,3 @@ in {
     ];
   };
 }
-

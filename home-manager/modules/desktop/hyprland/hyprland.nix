@@ -1,7 +1,8 @@
-{lib, config, ...}:
+{ lib, config, ... }:
 let
   cfg = config.custom.hyprland;
-in {
+in
+{
   options.custom.hyprland = {
     enable = lib.mkEnableOption "Enable custom hyprland module.";
 

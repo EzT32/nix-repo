@@ -1,7 +1,10 @@
-{...}:
+{ ... }:
 {
   # Experimental features
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nix.channel.enable = false;
   nix.settings.auto-optimise-store = true;

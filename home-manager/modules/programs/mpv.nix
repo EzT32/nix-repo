@@ -1,7 +1,13 @@
-{config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.custom.programs.mpv;
-in {
+in
+{
   options.custom.programs.mpv = {
     enable = lib.mkEnableOption "Enable mpv";
   };

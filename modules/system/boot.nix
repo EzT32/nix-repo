@@ -1,4 +1,4 @@
-{...}:
+{ ... }:
 {
   # Use systemd as bootloader
   boot.loader.systemd-boot.enable = true;

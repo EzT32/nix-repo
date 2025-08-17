@@ -1,7 +1,13 @@
-{config, lib, pkgs, ...}:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.custom.programs.prismlauncher;
-in {
+in
+{
   options.custom.programs.prismlauncher = {
     enable = lib.mkEnableOption "Enable prismlauncher";
   };
