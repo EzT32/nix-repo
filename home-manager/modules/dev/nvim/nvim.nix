@@ -40,6 +40,8 @@ in
         telescope-nvim
         plenary-nvim
 
+        neodev-nvim
+
         gruvbox-nvim
         lualine-nvim
         indent-blankline-nvim

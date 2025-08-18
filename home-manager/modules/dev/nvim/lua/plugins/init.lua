@@ -1,5 +1,5 @@
 require('plugins.colorscheme')
 require('plugins.lualine')
 require('plugins.indent')
-require('plugins.treesitter')
+require('plugins.treesitter').setup()
 require('plugins.telescope')
