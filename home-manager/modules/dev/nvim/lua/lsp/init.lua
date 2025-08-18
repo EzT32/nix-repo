@@ -1,2 +1,2 @@
-require('lsp.nix')
-require('lsp.lua')
+require('lsp.nix').setup()
+require('lsp.lua').setup()

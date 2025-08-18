@@ -45,7 +45,7 @@ in
         gruvbox-nvim
         lualine-nvim
         indent-blankline-nvim
-        
+
         none-ls-nvim
       ];
     };
