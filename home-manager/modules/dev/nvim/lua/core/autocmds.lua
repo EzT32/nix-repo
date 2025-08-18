@@ -14,3 +14,14 @@ for ft, size in pairs(indent_settings) do
     end,
   })
 end
+
+
+vim.api.nvim_create_autocmd("CursorHold", {
+  callback = function()
+    vim.diagnostic.open_float(nil, {
+      focusable = false,
+      border = "rounded",
+      scope = "cursor",
+    })
+  end,
+})

@@ -15,3 +15,13 @@ vim.o.smartindent = true;
 vim.o.autoindent = true;
 
 vim.o.termguicolors = true
+
+
+vim.diagnostic.config({
+  float = {
+    border = "rounded",
+    wrap = true,
+  },
+  severity_sort = true,
+  virtual_text = false,
+})
