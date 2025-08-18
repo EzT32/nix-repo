@@ -29,14 +29,22 @@ in
         statix
 
         wl-clipboard
+
+        gcc # remove when gcc is added globally
       ];
 
       plugins = with pkgs.vimPlugins; [
         nvim-lspconfig
-        none-ls-nvim
+        nvim-treesitter
+
+        telescope-nvim
+        plenary-nvim
 
         gruvbox-nvim
         lualine-nvim
+        indent-blankline-nvim
+        
+        none-ls-nvim
       ];
     };
 
