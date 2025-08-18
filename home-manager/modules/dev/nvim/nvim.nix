@@ -44,9 +44,18 @@ in
 
         gruvbox-nvim
         lualine-nvim
+
         indent-blankline-nvim
+        comment-nvim
 
         none-ls-nvim
+
+        nvim-cmp
+        cmp-nvim-lsp
+        cmp-buffer
+        cmp-path
+        luasnip
+        cmp_luasnip
       ];
     };
 
