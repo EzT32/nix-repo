@@ -26,6 +26,7 @@
       mpv.enable = true;
       obsidian.enable = true;
       spotify.enable = true;
+      racket.enable = true;
     };
   };
 }
