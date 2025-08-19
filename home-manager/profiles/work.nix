@@ -22,7 +22,11 @@
     };
 
     programs = {
-      discord.enable = true;
+      discord = {
+        enable = true;
+        vencord = false;
+        openASAR = false;
+      };
       mpv.enable = true;
       obsidian.enable = true;
       spotify.enable = true;
