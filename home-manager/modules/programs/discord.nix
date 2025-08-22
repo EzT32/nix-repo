@@ -2,6 +2,8 @@
   config,
   lib,
   pkgs,
+  unstable,
+  inputs,
   ...
 }:
 let
@@ -23,7 +25,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [
+    home.packages = with unstable; [
       (discord.override {
         withOpenASAR = cfg.openASAR;
         withVencord = cfg.vencord;
