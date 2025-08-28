@@ -2,6 +2,7 @@
 {
   imports = [
     ./discord.nix
+    ./ghdl.nix
     ./mpv.nix
     ./obsidian.nix
     ./prismlauncher.nix

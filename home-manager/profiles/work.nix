@@ -27,6 +27,7 @@
       obsidian.enable = true;
       spotify.enable = true;
       racket.enable = true;
+      ghdl.enable = true;
     };
   };
 }
