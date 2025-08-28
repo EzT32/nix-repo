@@ -1,5 +1,5 @@
 {
-  description = "Unified NixOS + Home Manager flake for ezt";
+  description = "Root flake for repository";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";

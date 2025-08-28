@@ -36,6 +36,9 @@ in
       plugins = with pkgs.vimPlugins; [
         nvim-lspconfig
         nvim-treesitter
+        nvim-treesitter-parsers.lua 
+        nvim-treesitter-parsers.nix 
+        nvim-treesitter-parsers.bash
 
         telescope-nvim
         plenary-nvim
