@@ -8,6 +8,7 @@
     ./prismlauncher.nix
     ./racket.nix
     ./spotify.nix
+    ./syncplay.nix
     ./vlc.nix
   ];
 }

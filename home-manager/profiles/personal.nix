@@ -25,6 +25,8 @@
       discord.enable = true;
       prismlauncher.enable = true;
       spotify.enable = true;
+      mpv.enable = true;
+      syncplay.enable = true;
     };
   };
 }
