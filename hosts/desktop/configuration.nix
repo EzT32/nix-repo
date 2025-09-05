@@ -11,12 +11,38 @@
   };
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  # boot.kernelParams = [ "nvidia_drm.modeset=1" ];
-  # boot.extraModprobeConfig = ''
-  #  options nvidia_drm modeset=1
-  #'';
+  custom = {
+    hyprland = {
+      enable = true;
 
-  # services.xserver.displayManager.gdm.wayland = true;
+      hyprpaper.enable = true;
+
+      sensitivity = -0.5;
+
+      keybinds = {
+        launchers.enable = true;
+        media.enable = true;
+        mouse.enable = true;
+        window.enable = true;
+        workspace.enable = true;
+      };
+    };
+
+    cursor = {
+      enable = true;
+    };
+
+    system.home-manager.enable = true;
+    programs = {
+      discord.enable = true;
+      prismlauncher.enable = true;
+      spotify.enable = true;
+      mpv.enable = true;
+      syncplay.enable = true;
+      libreoffice.enable = true;
+      steam.enable = true;
+    };
+  };
 
   networking.hostName = "desktop";
   system.stateVersion = "25.05";

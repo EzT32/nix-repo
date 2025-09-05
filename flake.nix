@@ -41,6 +41,7 @@
           modules = [
             ./hosts/laptop
             ./modules
+            home-manager.nixosModules.home-manager
             nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
           ];
           specialArgs = { inherit system unstable; };
@@ -51,28 +52,9 @@
           modules = [
             ./hosts/desktop
             ./modules
+            home-manager.nixosModules.home-manager
           ];
           specialArgs = { inherit system unstable; };
-        };
-      };
-
-      homeConfigurations = {
-        "ezt@laptop" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./home-manager ];
-          extraSpecialArgs = {
-            inherit system unstable;
-            profile = "work";
-          };
-        };
-
-        "ezt@desktop" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./home-manager ];
-          extraSpecialArgs = {
-            inherit system unstable;
-            profile = "personal";
-          };
         };
       };
     };

@@ -1,8 +1,12 @@
 { ... }:
 {
   imports = [
+    ./blueman.nix
+    ./cursor.nix
+    ./dolphin.nix
     ./environment.nix
-    ./hyprland.nix
     ./xdg.nix
+    ./hyprland
+    ./waybar
   ];
 }
