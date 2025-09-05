@@ -3,6 +3,7 @@
   imports = [
     ./discord.nix
     ./ghdl.nix
+    ./libreoffice.nix
     ./mpv.nix
     ./obsidian.nix
     ./prismlauncher.nix

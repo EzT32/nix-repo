@@ -27,6 +27,7 @@
       spotify.enable = true;
       mpv.enable = true;
       syncplay.enable = true;
+      libreoffice.enable = true;
     };
   };
 }
