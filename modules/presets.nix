@@ -11,6 +11,10 @@ _: {
     rofi.enable = true;
     system.home-manager.enable = true;
 
+    desktop = {
+      dolphin.enable = true;
+    };
+
     git = {
       enable = true;
 

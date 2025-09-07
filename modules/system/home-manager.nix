@@ -9,10 +9,11 @@ in
 
   config = lib.mkIf cfg.enable {
     home-manager.users.ezt = {
-      home.stateVersion = config.system.stateVersion;
-      home.username = "ezt";
-      home.homeDirectory = "/home/ezt";
-      programs.home-manager.enable = true;
+      home = {
+        stateVersion = config.system.stateVersion;
+        username = "ezt";
+        homeDirectory = "/home/ezt";
+      };
     };
   };
 }
