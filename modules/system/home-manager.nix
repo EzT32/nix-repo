@@ -1,9 +1,9 @@
 { config, lib, ... }:
 let
-  cfg = config.custom.system.home-manager;
+  cfg = config.modules.system.home-manager;
 in
 {
-  options.custom.system.home-manager = {
+  options.modules.system.home-manager = {
     enable = lib.mkEnableOption "Enable home-manager configurations.";
   };
 

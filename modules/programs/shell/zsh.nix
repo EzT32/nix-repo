@@ -1,10 +1,10 @@
 { config, lib, ... }:
 let
-  cfg = config.custom.shell.zsh;
+  cfg = config.modules.shell.zsh;
 in
 {
-  options.custom.shell.zsh = {
-    enable = lib.mkEnableOption "Enable custom zsh configuration";
+  options.modules.shell.zsh = {
+    enable = lib.mkEnableOption "Enable modules zsh configuration";
   };
 
   config = lib.mkIf cfg.enable {

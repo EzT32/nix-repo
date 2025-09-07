@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.custom.programs.libreoffice;
+  cfg = config.modules.programs.libreoffice;
 in
 {
-  options.custom.programs.libreoffice = {
+  options.modules.programs.libreoffice = {
     enable = lib.mkEnableOption "Enable libreoffice configurations.";
   };
 

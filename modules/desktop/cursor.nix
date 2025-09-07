@@ -5,11 +5,11 @@
   ...
 }:
 let
-  cfg = config.custom.cursor;
+  cfg = config.modules.cursor;
 in
 {
-  options.custom.cursor = {
-    enable = lib.mkEnableOption "Enable custom pointer module.";
+  options.modules.cursor = {
+    enable = lib.mkEnableOption "Enable modules pointer module.";
 
     theme = lib.mkOption {
       type = lib.types.str;

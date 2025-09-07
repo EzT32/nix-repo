@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.custom.programs.obsidian;
+  cfg = config.modules.programs.obsidian;
 in
 {
-  options.custom.programs.obsidian = {
+  options.modules.programs.obsidian = {
     enable = lib.mkEnableOption "Enable obsidian";
 
     vaultPath = lib.mkOption {

@@ -1,10 +1,10 @@
 { config, lib, ... }:
 let
-  cfg = config.custom.shell.eza;
+  cfg = config.modules.shell.eza;
 in
 {
-  options.custom.shell.eza = {
-    enable = lib.mkEnableOption "Enable custom eza configuration";
+  options.modules.shell.eza = {
+    enable = lib.mkEnableOption "Enable modules eza configuration";
   };
 
   config = lib.mkIf cfg.enable {

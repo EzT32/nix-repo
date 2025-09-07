@@ -6,7 +6,7 @@
 }:
 
 let
-  cfg = config.custom.hyprland.keybinds.laptop;
+  cfg = config.modules.hyprland.keybinds.laptop;
 
   updateMicLed = pkgs.writeShellScript "update-mic-led" ''
     micStatus=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -c MUTED)
@@ -19,7 +19,7 @@ let
   '';
 in
 {
-  options.custom.hyprland.keybinds.laptop = {
+  options.modules.hyprland.keybinds.laptop = {
     enable = lib.mkEnableOption "Laptop-specific keybinds";
 
     brightnessStep = lib.mkOption {
@@ -42,5 +42,8 @@ in
         ];
       };
     };
+    environment.systemPackages = with pkgs; [
+      brightnessctl
+    ];
   };
 }

@@ -1,8 +1,9 @@
 { config, lib, ... }:
 let
-  cfg = config.custom.programs.ssh;
-in {
-  options.custom.programs.ssh = {
+  cfg = config.modules.programs.ssh;
+in
+{
+  options.modules.programs.ssh = {
     enable = lib.mkEnableOption "Enable ssh configurations.";
   };
 

@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.custom.programs.mpv;
+  cfg = config.modules.programs.mpv;
 in
 {
-  options.custom.programs.mpv = {
+  options.modules.programs.mpv = {
     enable = lib.mkEnableOption "Enable mpv";
   };
 

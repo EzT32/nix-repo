@@ -4,10 +4,10 @@
   ...
 }:
 let
-  cfg = config.custom.hyprland.hypridle;
+  cfg = config.modules.hyprland.hypridle;
 in
 {
-  options.custom.hyprland.hypridle = {
+  options.modules.hyprland.hypridle = {
     enable = lib.mkEnableOption "Enable hypridle service";
 
     lockTimeout = lib.mkOption {

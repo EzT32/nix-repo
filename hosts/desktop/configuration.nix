@@ -10,7 +10,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
-  custom = {
+  modules = {
     hyprland.sensitivity = -0.5;
 
     programs = {

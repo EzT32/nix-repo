@@ -1,10 +1,10 @@
 { lib, config, ... }:
 let
-  cfg = config.custom.hyprland;
+  cfg = config.modules.hyprland;
 in
 {
-  options.custom.hyprland = {
-    enable = lib.mkEnableOption "Enable custom hyprland module.";
+  options.modules.hyprland = {
+    enable = lib.mkEnableOption "Enable modules hyprland module.";
 
     sensitivity = lib.mkOption {
       type = lib.types.float;

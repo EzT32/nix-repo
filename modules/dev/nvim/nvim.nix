@@ -5,11 +5,11 @@
   ...
 }:
 let
-  cfg = config.custom.nvim;
+  cfg = config.modules.nvim;
 in
 {
-  options.custom.nvim = {
-    enable = lib.mkEnableOption "Enable custom nvim configuration.";
+  options.modules.nvim = {
+    enable = lib.mkEnableOption "Enable modules nvim configuration.";
   };
 
   config = lib.mkIf cfg.enable {
@@ -37,8 +37,8 @@ in
         plugins = with pkgs.vimPlugins; [
           nvim-lspconfig
           nvim-treesitter
-          nvim-treesitter-parsers.lua 
-          nvim-treesitter-parsers.nix 
+          nvim-treesitter-parsers.lua
+          nvim-treesitter-parsers.nix
           nvim-treesitter-parsers.bash
 
           telescope-nvim

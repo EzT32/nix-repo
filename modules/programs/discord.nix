@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.custom.programs.discord;
+  cfg = config.modules.programs.discord;
 in
 {
-  options.custom.programs.discord = {
+  options.modules.programs.discord = {
     enable = lib.mkEnableOption "Enable discord";
 
     openASAR = lib.mkOption {

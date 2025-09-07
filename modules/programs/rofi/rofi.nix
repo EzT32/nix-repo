@@ -5,11 +5,11 @@
   ...
 }:
 let
-  cfg = config.custom.rofi;
+  cfg = config.modules.rofi;
 in
 {
-  options.custom.rofi = {
-    enable = lib.mkEnableOption "Enable custom rofi app launcher configuration.";
+  options.modules.rofi = {
+    enable = lib.mkEnableOption "Enable modules rofi app launcher configuration.";
   };
 
   config = lib.mkIf cfg.enable {

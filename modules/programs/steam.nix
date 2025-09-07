@@ -1,9 +1,14 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
-  cfg = config.custom.programs.steam;
+  cfg = config.modules.programs.steam;
 in
 {
-  options.custom.programs.steam = {
+  options.modules.programs.steam = {
     enable = lib.mkEnableOption "Enable steam configurations.";
   };
 

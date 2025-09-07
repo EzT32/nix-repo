@@ -4,7 +4,7 @@ _: {
 
   system.stateVersion = "25.05";
 
-  custom = {
+  modules = {
     cursor.enable = true;
     kitty.enable = true;
     nvim.enable = true;

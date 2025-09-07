@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.custom.programs.prismlauncher;
+  cfg = config.modules.programs.prismlauncher;
 in
 {
-  options.custom.programs.prismlauncher = {
+  options.modules.programs.prismlauncher = {
     enable = lib.mkEnableOption "Enable prismlauncher";
   };
 

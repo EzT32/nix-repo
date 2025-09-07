@@ -5,12 +5,12 @@
   ...
 }:
 let
-  cfg = config.custom.kitty;
+  cfg = config.modules.kitty;
 
   themePath = "${cfg.themeRepo}/themes/${cfg.theme}.conf";
 in
 {
-  options.custom.kitty = {
+  options.modules.kitty = {
     enable = lib.mkEnableOption "Enable Kitty terminal configuration";
 
     font = {
@@ -42,7 +42,7 @@ in
         sha256 = "sha256-RcDmZ1fbNX18+X3xCqqdRbD+XYPsgNte1IXUNt6CxIA=";
       };
       description = ''
-        Optional custom path or fetchFromGitHub derivation pointing to a kitty-themes directory.
+        Optional modules path or fetchFromGitHub derivation pointing to a kitty-themes directory.
         If null, the default 'dexpota/kitty-themes' repo is used.
       '';
     };

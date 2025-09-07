@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.custom.hyprland.keybinds.media;
+  cfg = config.modules.hyprland.keybinds.media;
 in
 {
-  options.custom.hyprland.keybinds.media = {
+  options.modules.hyprland.keybinds.media = {
     enable = lib.mkEnableOption "Media keybinds";
 
     volumeStep = lib.mkOption {
@@ -58,5 +58,8 @@ in
         swappy
       ];
     };
+    environment.systemPackages = with pkgs; [
+      playerctl
+    ];
   };
 }

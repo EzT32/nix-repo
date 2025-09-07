@@ -1,9 +1,9 @@
 { lib, config, ... }:
 let
-  cfg = config.custom.hyprland.keybinds.workspace;
+  cfg = config.modules.hyprland.keybinds.workspace;
 in
 {
-  options.custom.hyprland.keybinds.workspace = {
+  options.modules.hyprland.keybinds.workspace = {
     enable = lib.mkEnableOption "Workspace keybinds";
   };
 

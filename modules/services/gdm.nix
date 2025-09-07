@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   services = {
     xserver = {
       displayManager.gdm = {

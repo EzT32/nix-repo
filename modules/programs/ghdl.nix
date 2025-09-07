@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.custom.programs.ghdl;
+  cfg = config.modules.programs.ghdl;
 in
 {
-  options.custom.programs.ghdl = {
+  options.modules.programs.ghdl = {
     enable = lib.mkEnableOption "Enable configuration for ghdl.";
   };
 

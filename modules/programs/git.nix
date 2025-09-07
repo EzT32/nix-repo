@@ -5,11 +5,11 @@
   ...
 }:
 let
-  cfg = config.custom.git;
+  cfg = config.modules.git;
 in
 {
-  options.custom.git = {
-    enable = lib.mkEnableOption "Enable custom git configurations.";
+  options.modules.git = {
+    enable = lib.mkEnableOption "Enable modules git configurations.";
 
     userName = lib.mkOption {
       type = lib.types.str;

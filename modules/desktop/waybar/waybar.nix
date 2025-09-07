@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   home-manager.users.ezt = {
     programs.waybar = {
       enable = true;

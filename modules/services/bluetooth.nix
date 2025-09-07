@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.custom.services.bluetooth;
+  cfg = config.modules.services.bluetooth;
 in
 {
-  options.custom.services.bluetooth = {
+  options.modules.services.bluetooth = {
     enable = lib.mkEnableOption "Enable bluetooth";
   };
 

@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   imports = [
     ./core-cli.nix
     ./discord.nix
@@ -16,7 +15,7 @@
     ./steam.nix
     ./syncplay.nix
     ./vlc.nix
-    ./rofi 
-    ./shell 
+    ./rofi
+    ./shell
   ];
 }

@@ -1,9 +1,9 @@
 { config, lib, ... }:
 let
-  cfg = config.custom.startup.blueman;
+  cfg = config.modules.startup.blueman;
 in
 {
-  options.custom.startup.blueman = {
+  options.modules.startup.blueman = {
     enable = lib.mkEnableOption "Launch blueman on startup.";
   };
 

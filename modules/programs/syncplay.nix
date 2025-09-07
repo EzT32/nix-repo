@@ -1,9 +1,14 @@
-{lib, config, pkgs, ...}:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 let
-  cfg = config.custom.programs.syncplay;
+  cfg = config.modules.programs.syncplay;
 in
 {
-  options.custom.programs.syncplay = {
+  options.modules.programs.syncplay = {
     enable = lib.mkEnableOption "Enable configuration for syncplay";
   };
 

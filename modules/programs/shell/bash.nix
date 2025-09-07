@@ -1,10 +1,10 @@
 { config, lib, ... }:
 let
-  cfg = config.custom.shell.bash;
+  cfg = config.modules.shell.bash;
 in
 {
-  options.custom.shell.bash = {
-    enable = lib.mkEnableOption "Enable custom bash configuration";
+  options.modules.shell.bash = {
+    enable = lib.mkEnableOption "Enable modules bash configuration";
   };
 
   config = lib.mkIf cfg.enable {

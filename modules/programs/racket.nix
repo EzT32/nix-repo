@@ -5,11 +5,11 @@
   ...
 }:
 let
-  cfg = config.custom.programs.racket;
+  cfg = config.modules.programs.racket;
 in
 {
-  options.custom.programs.racket = {
-    enable = lib.mkEnableOption "Enable custom racket configuration.";
+  options.modules.programs.racket = {
+    enable = lib.mkEnableOption "Enable modules racket configuration.";
   };
 
   config = lib.mkIf cfg.enable {

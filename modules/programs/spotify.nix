@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.custom.programs.spotify;
+  cfg = config.modules.programs.spotify;
 in
 {
-  options.custom.programs.spotify = {
+  options.modules.programs.spotify = {
     enable = lib.mkEnableOption "Enable spotify";
   };
 

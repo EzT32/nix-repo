@@ -1,9 +1,9 @@
 { lib, config, ... }:
 let
-  cfg = config.custom.hyprland.keybinds.mouse;
+  cfg = config.modules.hyprland.keybinds.mouse;
 in
 {
-  options.custom.hyprland.keybinds.mouse = {
+  options.modules.hyprland.keybinds.mouse = {
     enable = lib.mkEnableOption "Mouse keybinds";
   };
 

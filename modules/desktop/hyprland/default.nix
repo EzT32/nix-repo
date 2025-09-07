@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   imports = [
     ./hypridle.nix
     ./hyprlock.nix
