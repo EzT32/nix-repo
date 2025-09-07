@@ -2,34 +2,29 @@
 Single root flake to handle userspace and system configurations.
 ```
 .
-├── home-manager
-│   ├── modules
-│   │   ├── cli
-│   │   │   ├── rofi
-│   │   │   └── shell
-│   │   ├── desktop
-│   │   │   ├── hyprland
-│   │   │   │   └── keybindings
-│   │   │   └── waybar
-│   │   ├── dev
-│   │   │   └── nvim
-│   │   │       └── lua
-│   │   └── programs
-│   ├── profiles
-│   └── wallpapers
 ├── hosts
 │   ├── desktop
 │   └── laptop
 ├── lib
 ├── modules
 │   ├── desktop
+│   │   ├── hyprland
+│   │   │   └── keybindings
+│   │   └── waybar
+│   ├── dev
+│   │   └── nvim
+│   │       └── lua
+│   │           ├── core
+│   │           ├── lsp
+│   │           └── plugins
 │   ├── programs
-│   │   ├── cli
-│   │   └── gui
+│   │   ├── rofi
+│   │   └── shell
 │   ├── services
 │   ├── system
 │   └── users
-└── overlays
+├── overlays
+└── wallpapers
 ``` 
 
 ### Import handling
