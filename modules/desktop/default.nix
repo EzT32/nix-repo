@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./blueman.nix
     ./cursor.nix
     ./dolphin.nix
     ./environment.nix

@@ -38,6 +38,10 @@ _: {
       spotify.enable = true;
     };
 
+    services = {
+      bluetooth.enable = true;
+    };
+
     shell = {
       bash.enable = true;
       eza.enable = true;

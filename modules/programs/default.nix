@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./blueman.nix
     ./core-cli.nix
     ./discord.nix
     ./ghdl.nix
