@@ -5,13 +5,13 @@ _: {
   system.stateVersion = "25.05";
 
   modules = {
-    cursor.enable = true;
     kitty.enable = true;
     nvim.enable = true;
     rofi.enable = true;
     system.home-manager.enable = true;
 
     desktop = {
+      cursor.enable = true;
       dolphin.enable = true;
     };
 
