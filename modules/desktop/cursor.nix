@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.modules.cursor;
+  cfg = config.modules.desktop.cursor;
 in
 {
-  options.modules.cursor = {
+  options.modules.desktop.cursor = {
     enable = lib.mkEnableOption "Enable modules pointer module.";
 
     theme = lib.mkOption {
@@ -34,13 +34,15 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home-manager.users.ezt.home.pointerCursor = {
-      name = cfg.theme;
-      size = cfg.size;
-      package = cfg.package;
-      hyprcursor.enable = true;
-      x11.enable = true;
-      gtk.enable = true;
+    home-manager.users.ezt.home = {
+      pointerCursor = {
+        name = cfg.theme;
+        size = cfg.size;
+        package = cfg.package;
+        hyprcursor.enable = true;
+        x11.enable = true;
+        gtk.enable = true;
+      };
     };
   };
 }
