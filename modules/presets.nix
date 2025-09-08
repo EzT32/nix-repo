@@ -13,6 +13,20 @@ _: {
     desktop = {
       cursor.enable = true;
       dolphin.enable = true;
+
+      hyprland = {
+        enable = true;
+
+        hyprpaper.enable = true;
+
+        keybinds = {
+          launchers.enable = true;
+          media.enable = true;
+          mouse.enable = true;
+          window.enable = true;
+          workspace.enable = true;
+        };
+      };
     };
 
     git = {
@@ -20,20 +34,6 @@ _: {
 
       userName = "EzT32";
       userEmail = "theodor.berghansen@icloud.com";
-    };
-
-    hyprland = {
-      enable = true;
-
-      hyprpaper.enable = true;
-
-      keybinds = {
-        launchers.enable = true;
-        media.enable = true;
-        mouse.enable = true;
-        window.enable = true;
-        workspace.enable = true;
-      };
     };
 
     programs = {

@@ -11,7 +11,9 @@
   };
 
   modules = {
-    hyprland.sensitivity = -0.5;
+    desktop = {
+      hyprland.sensitivity = -0.5;
+    };
 
     programs = {
       prismlauncher.enable = true;

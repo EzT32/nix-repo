@@ -1,10 +1,12 @@
 _: {
   networking.hostName = "laptop";
 
-  custom = {
-    hyprland = {
-      hypridle.enable = true;
-      keybinds.laptop.enable = true;
+  modules = {
+    desktop = {
+      hyprland = {
+        hypridle.enable = true;
+        keybinds.laptop.enable = true;
+      };
     };
 
     programs = {

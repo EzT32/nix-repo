@@ -1,9 +1,9 @@
 { lib, config, ... }:
 let
-  cfg = config.modules.hyprland.hyprpaper;
+  cfg = config.modules.desktop.hyprland.hyprpaper;
 in
 {
-  options.modules.hyprland.hyprpaper = {
+  options.modules.desktop.hyprland.hyprpaper = {
     enable = lib.mkEnableOption "Enable modules hyprpaper module.";
 
     path = lib.mkOption {

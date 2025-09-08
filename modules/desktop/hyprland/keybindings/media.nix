@@ -5,10 +5,10 @@
   ...
 }:
 let
-  cfg = config.modules.hyprland.keybinds.media;
+  cfg = config.modules.desktop.hyprland.keybinds.media;
 in
 {
-  options.modules.hyprland.keybinds.media = {
+  options.modules.desktop.hyprland.keybinds.media = {
     enable = lib.mkEnableOption "Media keybinds";
 
     volumeStep = lib.mkOption {

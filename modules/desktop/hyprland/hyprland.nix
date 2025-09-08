@@ -1,9 +1,9 @@
 { lib, config, ... }:
 let
-  cfg = config.modules.hyprland;
+  cfg = config.modules.desktop.hyprland;
 in
 {
-  options.modules.hyprland = {
+  options.modules.desktop.hyprland = {
     enable = lib.mkEnableOption "Enable modules hyprland module.";
 
     sensitivity = lib.mkOption {

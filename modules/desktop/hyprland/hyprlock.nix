@@ -1,9 +1,9 @@
 { config, lib, ... }:
 let
-  cfg = config.modules.hyprland.hyprlock;
+  cfg = config.modules.desktop.hyprland.hyprlock;
 in
 {
-  options.modules.hyprland.hyprlock = {
+  options.modules.desktop.hyprland.hyprlock = {
     enable = lib.mkEnableOption "Enable modules hyprlock module.";
 
     path = lib.mkOption {
