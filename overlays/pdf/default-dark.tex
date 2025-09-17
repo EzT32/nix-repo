@@ -12,7 +12,9 @@
 \usemintedstyle{gruvbox.Dark}
 
 % ---------- Fonts ----------
-\setmainfont{Liberation Mono}
+\setmainfont{FiraCode Nerd Font}
+\setsansfont{FiraCode Nerd Font}
+\setmonofont{FiraCode Nerd Font}
 
 % ---------- Colors ----------
 \definecolor{bg}{HTML}{282828}
@@ -45,7 +47,7 @@
 \setsvg{
   inkscapelatex=true,
   inkscapearea=page,
-  width=0.5\textwidth
+  width=0.3\textwidth
 }
 
 % --------- Minted ---------
@@ -75,7 +77,7 @@
   bottom=6pt,
   fontupper=\sffamily\small\color{primary},
   overlay={
-    \node[anchor=north west, font=\small\sffamily, text=primary, xshift=6pt, yshift=-6pt]
+    \node[anchor=north west, font=\footnotesize\sffamily, text=primary, xshift=6pt, yshift=-6pt]
       at (frame.north west) {#2};
   },
   #1
