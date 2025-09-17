@@ -14,5 +14,7 @@
     vim
     wget
     zip
+    imagemagick
+    inkscape
   ];
 }

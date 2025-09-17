@@ -3,6 +3,7 @@ _: {
     ./presets.nix
     ./desktop
     ./dev
+    ./fonts
     ./programs
     ./services
     ./system

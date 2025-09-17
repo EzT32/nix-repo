@@ -41,6 +41,7 @@
           modules = [
             ./hosts/laptop
             ./modules
+            ./overlays
             home-manager.nixosModules.home-manager
             nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
           ];
@@ -52,8 +53,10 @@
           modules = [
             ./hosts/desktop
             ./modules
+            ./overlays
             home-manager.nixosModules.home-manager
           ];
+
           specialArgs = { inherit system unstable; };
         };
       };

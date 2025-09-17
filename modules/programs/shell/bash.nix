@@ -1,4 +1,6 @@
+
 { config, lib, ... }:
+
 let
   cfg = config.modules.shell.bash;
 in
@@ -19,3 +21,5 @@ in
     };
   };
 }
+
+
