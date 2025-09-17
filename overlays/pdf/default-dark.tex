@@ -1,13 +1,82 @@
+% ---------- Base packages ----------
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{svg}
+\usepackage{fontspec}
 \usepackage{xcolor}
 \usepackage{caption}
-\usepackage{graphicx}
-\usepackage{fontspec}
-\usepackage{svg}
-\usepackage{tikz}
+\usepackage{listings}
+\usepackage{minted}
+\usepackage[many]{tcolorbox}
+\tcbuselibrary{listings,skins,breakable}
+\usemintedstyle{gruvbox.Dark}
+
+% ---------- Fonts ----------
 \setmainfont{Liberation Mono}
-\setsvg{inkscapelatex=true, inkscapearea=page}
-\captionsetup[figure]{labelformat=empty}
 
-\pagecolor[HTML]{252422}
-\color[HTML]{fffcf2}
+% ---------- Colors ----------
+\definecolor{bg}{HTML}{282828}
+\definecolor{darkred}{HTML}{cc241d}
+\definecolor{darkgreen}{HTML}{98971a}
+\definecolor{darkyellow}{HTML}{d79921}
+\definecolor{darkblue}{HTML}{458588}
+\definecolor{darkpurple}{HTML}{b16286}
+\definecolor{darkaqua}{HTML}{689d6a}
+\definecolor{darkgray}{HTML}{928374}
+\definecolor{bg0h}{HTML}{1d2021}
+\definecolor{darkorange}{HTML}{d65d0e}
+\definecolor{fg0}{HTML}{fbf1c7}
 
+\colorlet{primary}{fg0}
+\colorlet{secondary}{bg}
+\colorlet{tertiary}{darkgreen}
+
+\pagecolor{secondary}
+\color{primary}
+
+% ---------- Captions ----------
+\captionsetup{
+  font={bf},
+  width=0.8\textwidth,
+  labelformat=empty
+}
+
+% ---------- SVG ----------
+\setsvg{
+  inkscapelatex=true,
+  inkscapearea=page,
+  width=0.5\textwidth
+}
+
+% --------- Minted ---------
+\setminted{
+  fontsize=\small,
+  fontfamily=tt,
+  linenos=false,
+  numbersep=5pt,
+  xleftmargin=0pt,
+  xrightmargin=0pt,
+  bgcolor=bg0h,
+  style=default,
+  texcomments=true,
+  escapeinside=||
+}
+\newtcolorbox{codeblock}[2][]{
+  enhanced,
+  breakable,
+  colback=bg0h,
+  coltext=primary,
+  boxrule=0pt,
+  arc=6pt,
+  outer arc=6pt,
+  left=6pt,
+  right=6pt,
+  top=28pt,
+  bottom=6pt,
+  fontupper=\sffamily\small\color{primary},
+  overlay={
+    \node[anchor=north west, font=\small\sffamily, text=primary, xshift=6pt, yshift=-6pt]
+      at (frame.north west) {#2};
+  },
+  #1
+}

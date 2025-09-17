@@ -44,7 +44,8 @@ _: {
           --pdf-engine=xelatex \
           --pdf-engine-opt=-shell-escape \
           -H "$HEADER"
-          nohup ${prev.firefox}/bin/firefox $OUT >/dev/null 2>&1 &
+        
+        nohup ${prev.firefox}/bin/firefox $OUT >/dev/null 2>&1 &
       '';
     })
   ];
