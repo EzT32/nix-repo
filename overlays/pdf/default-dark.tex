@@ -10,9 +10,6 @@
 \usepackage[many]{tcolorbox}
 \tcbuselibrary{listings,skins,breakable}
 
-\immediate\write18{export PYTHONPATH=/home/ezt/pdf:$PYTHONPATH}
-\usemintedstyle{gruvbox.Dark}
-
 % ---------- Fonts ----------
 \setmainfont{FiraCode Nerd Font}
 \setsansfont{FiraCode Nerd Font}
@@ -52,6 +49,11 @@
   width=0.3\textwidth
 }
 
+
+\newcommand{\fixsvg}[1]{
+  \immediate\write18{perl -pi -e 's/fill="(?!none")[^"]+"/fill="\#fbf1c7"/g; s/stroke="(?!none")[^"]+"/stroke="\#fbf1c7"/g; s/font-family="[^"]*"/font-family="FiraCode Nerd Font Bold"/g; s/ style="[^"]*"//g' #1.svg}
+}
+
 % --------- Minted ---------
 \setminted{
   fontsize=\small,
@@ -60,8 +62,7 @@
   numbersep=5pt,
   xleftmargin=0pt,
   xrightmargin=0pt,
-  bgcolor=bg0h,
-  style=default,
+  style=gruvbox-dark,
   texcomments=true,
   escapeinside=||
 }
@@ -84,3 +85,5 @@
   },
   #1
 }
+
+
