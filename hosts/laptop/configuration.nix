@@ -4,7 +4,6 @@ _: {
   modules = {
     desktop = {
       hyprland = {
-        hypridle.enable = true;
         keybinds.laptop.enable = true;
       };
     };
