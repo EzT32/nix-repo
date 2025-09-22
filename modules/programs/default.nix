@@ -9,7 +9,6 @@ _: {
     ./libreoffice.nix
     ./mpv.nix
     ./obsidian.nix
-    ./pdf.nix
     ./prismlauncher.nix
     ./racket.nix
     ./spotify.nix
