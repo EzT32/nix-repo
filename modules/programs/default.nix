@@ -3,7 +3,6 @@ _: {
     ./blueman.nix
     ./core-cli.nix
     ./discord.nix
-    ./ghdl.nix
     ./git.nix
     ./kitty.nix
     ./libreoffice.nix
