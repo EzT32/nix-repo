@@ -31,7 +31,10 @@ in
 
           wl-clipboard
 
-          gcc # remove when gcc is added globally
+          gcc
+
+          vhdl-ls
+          ghdl
         ];
 
         plugins = with pkgs.vimPlugins; [
@@ -40,6 +43,7 @@ in
           nvim-treesitter-parsers.lua
           nvim-treesitter-parsers.nix
           nvim-treesitter-parsers.bash
+          nvim-treesitter-parsers.vhdl
 
           telescope-nvim
           plenary-nvim
