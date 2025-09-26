@@ -4,7 +4,7 @@ let
 in
 {
   options.modules.desktop.hyprland = {
-    enable = lib.mkEnableOption "Enable modules hyprland module.";
+    enable = lib.mkEnableOption "Enable hyprland configurations.";
 
     sensitivity = lib.mkOption {
       type = lib.types.float;
