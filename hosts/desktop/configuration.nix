@@ -20,7 +20,6 @@
       syncplay.enable = true;
       libreoffice.enable = true;
       steam.enable = true;
-      racket.enable = true;
     };
   };
 }

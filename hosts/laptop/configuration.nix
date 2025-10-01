@@ -10,7 +10,6 @@ _: {
 
     programs = {
       obsidian.enable = true;
-      racket.enable = true;
       blueman.enable = true;
     };
   };

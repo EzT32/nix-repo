@@ -9,7 +9,6 @@ _: {
     ./mpv.nix
     ./obsidian.nix
     ./prismlauncher.nix
-    ./racket.nix
     ./spotify.nix
     ./ssh.nix
     ./steam.nix
