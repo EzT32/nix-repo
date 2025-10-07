@@ -35,6 +35,8 @@ in
 
           vhdl-ls
           ghdl
+
+          asm-lsp
         ];
 
         plugins = with pkgs.vimPlugins; [
@@ -44,6 +46,7 @@ in
           nvim-treesitter-parsers.nix
           nvim-treesitter-parsers.bash
           nvim-treesitter-parsers.vhdl
+          nvim-treesitter-parsers.asm
 
           telescope-nvim
           plenary-nvim
