@@ -54,7 +54,7 @@ in
             Description = "Set Hyprsunset Daytime Profile";
           };
           Service = {
-            ExecStart = "${pkgs.hyprsunset}/bin/hyprsunset -t 6500 -g 100";
+            ExecStart = "${pkgs.hyprsunset}/bin/hyprsunset -t 6000 -g 100";
           };
         };
 
@@ -91,7 +91,7 @@ in
             "SUPER, Y, exec, ${pkgs.writeShellScriptBin "toggle-hyprsunset" ''
               if pgrep -x hyprsunset >/dev/null; then
                 pkill hyprsunset
-                ${pkgs.hyprsunset}/bin/hyprsunset -t 6500 -g 100 &
+                ${pkgs.hyprsunset}/bin/hyprsunset -t 6000 -g 100 &
               else
                 ${pkgs.hyprsunset}/bin/hyprsunset -t ${toString cfg.nightTemp} -g ${toString cfg.gamma} &
               fi
