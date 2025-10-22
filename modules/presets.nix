@@ -18,6 +18,7 @@ _: {
         enable = true;
 
         hyprpaper.enable = true;
+        hyprsunset.enable = true;
 
         keybinds = {
           launchers.enable = true;

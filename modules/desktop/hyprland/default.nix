@@ -1,9 +1,10 @@
 _: {
   imports = [
     ./hypridle.nix
+    ./hyprland.nix
     ./hyprlock.nix
     ./hyprpaper.nix
-    ./hyprland.nix
+    ./hyprsunset.nix
     ./keybindings
   ];
 }
