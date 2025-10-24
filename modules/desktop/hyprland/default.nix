@@ -4,7 +4,7 @@ _: {
     ./hyprland.nix
     ./hyprlock.nix
     ./hyprpaper.nix
-    ./hyprsunset2.nix
+    ./hyprsunset.nix
     ./keybindings
   ];
 }

@@ -1,3 +1,4 @@
+# https://search.nixos.org/options?channel=25.05&query=systemd.user.services
 {
   lib,
   config,
@@ -7,97 +8,68 @@
 
 let
   cfg = config.modules.desktop.hyprland.hyprsunset;
+  pkill-bin = "${pkgs.procps}/bin/pkill";
+  systemd-run = "systemd-run --user --scope --quiet";
+  bash-bin = "${pkgs.bash}/bin/bash";
+  hyprsunset-bin = "${pkgs.hyprsunset}/bin/hyprsunset";
 in
 {
   options.modules.desktop.hyprland.hyprsunset = {
     enable = lib.mkEnableOption "Enable hyprsunset service.";
-
-    dayTime = lib.mkOption {
-      type = lib.types.str;
-      default = "07:30";
-      description = "Time to enable daytime color profile.";
-    };
-
-    nightTime = lib.mkOption {
-      type = lib.types.str;
-      default = "21:00";
-      description = "Time to enable nighttime color profile.";
-    };
-
-    nightTemp = lib.mkOption {
-      type = lib.types.int;
-      default = 4500;
-      description = "Night color temperature.";
-    };
-
-    gamma = lib.mkOption {
-      type = lib.types.int;
-      default = 100;
-      description = "Gamma value for nighttime.";
-    };
-
-    user = lib.mkOption {
-      type = lib.types.str;
-      default = "ezt";
-      description = "Username for home-manager configuration.";
-    };
   };
 
   config = lib.mkIf cfg.enable {
-    home-manager.users.${cfg.user} =
-      { pkgs, ... }:
-      {
-        home.packages = [ pkgs.hyprsunset ];
+    environment.systemPackages = with pkgs; [
+      hyprsunset
+    ];
 
-        systemd.user.services.hyprsunset-day = {
-          Unit = {
-            Description = "Set Hyprsunset Daytime Profile";
-          };
-          Service = {
-            ExecStart = "${pkgs.hyprsunset}/bin/hyprsunset -t 6000 -g 100";
-          };
-        };
-
-        systemd.user.services.hyprsunset-night = {
-          Unit = {
-            Description = "Set Hyprsunset Nighttime Profile";
-          };
-          Service = {
-            ExecStart = "${pkgs.hyprsunset}/bin/hyprsunset -t ${toString cfg.nightTemp} -g ${toString cfg.gamma}";
-          };
-        };
-
-        systemd.user.timers.hyprsunset-day = {
-          Unit.Description = "Enable daytime profile at ${cfg.dayTime}";
-          Timer = {
-            OnCalendar = "*-*-* ${cfg.dayTime}";
-            Persistent = true;
-          };
-          Install.WantedBy = [ "timers.target" ];
-        };
-
-        systemd.user.timers.hyprsunset-night = {
-          Unit.Description = "Enable nighttime profile at ${cfg.nightTime}";
-          Timer = {
-            OnCalendar = "*-*-* ${cfg.nightTime}";
-            Persistent = true;
-          };
-          Install.WantedBy = [ "timers.target" ];
-        };
-
-        wayland.windowManager.hyprland.settings = {
-          bindl = [
-            # Toggle between day and night manually
-            "SUPER, Y, exec, ${pkgs.writeShellScriptBin "toggle-hyprsunset" ''
-              if pgrep -x hyprsunset >/dev/null; then
-                pkill hyprsunset
-                ${pkgs.hyprsunset}/bin/hyprsunset -t 6000 -g 100 &
-              else
-                ${pkgs.hyprsunset}/bin/hyprsunset -t ${toString cfg.nightTemp} -g ${toString cfg.gamma} &
-              fi
-            ''}/bin/toggle-hyprsunset"
-          ];
-        };
+    home-manager.users.ezt = {
+      wayland.windowManager.hyprland.settings = {
+        bindl = [
+          "SUPERSHIFT, n, exec, ${pkill-bin} hyprsunset; ${hyprsunset-bin} -t 4500 &"
+          "SUPERSHIFT, d, exec, ${pkill-bin} hyprsunset; ${hyprsunset-bin} -i &"
+        ];
       };
+    };
+
+    systemd.user.services.nightlight = {
+      description = "Custom hyprsunset service";
+      wantedBy = [ "graphical-session.target" ];
+
+      serviceConfig = {
+        KillMode = "mixed";
+        Type = "oneshot";
+      };
+
+      script = ''
+        time=$(date +%H%M%S)
+        ${pkill-bin} hyprsunset || true
+        if [ "$time" -ge 220000 -o "$time" -le 080000 ]; then
+          ${systemd-run} ${bash-bin} -c "${hyprsunset-bin} -t 4500 &"
+        else
+           ${systemd-run} ${bash-bin} -c "${hyprsunset-bin} -i &"
+        fi
+      '';
+    };
+
+    systemd.user.timers.hyprsunset-day = {
+      description = "Restart hyprsunset for daytime";
+      timerConfig = {
+        OnCalendar = "*-*-* 08:00:00";
+        Unit = "nightlight.service";
+        Persistent = true;
+      };
+      wantedBy = [ "timers.target" ];
+    };
+
+    systemd.user.timers.hyprsunset-night = {
+      description = "Restart hyprsunset for nighttime";
+      timerConfig = {
+        OnCalendar = "*-*-* 22:00:00";
+        Unit = "nightlight.service";
+        Persistent = true;
+      };
+      wantedBy = [ "timers.target" ];
+    };
   };
 }
