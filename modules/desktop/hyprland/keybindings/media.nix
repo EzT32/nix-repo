@@ -43,9 +43,6 @@ in
           ", XF86AudioNext, exec, playerctl next"
 
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-
-          "SUPERSHIFT, n, exec, hyprctl hyprsunset temperature 4500"
-          "SUPERSHIFT, d, exec, hyprctl hyprsunset temperature 6000"
         ];
 
         bindel = [
