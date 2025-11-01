@@ -5,9 +5,9 @@ _: {
       wayland.enable = true;
     };
 
-    xserver = {
+    xserver.xkb = {
       layout = "no";
-      xkbVariant = "";
+      variant = "";
     }; 
 
     gnome.gnome-keyring.enable = true;

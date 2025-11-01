@@ -22,10 +22,11 @@ in
           "SUPER, F, fullscreen, 1"
           "SUPERSHIFT, F, fullscreen, 0"
           "SUPER, G, togglefloating"
+
+          "ALT, TAB, cyclenext"
         ];
 
         bindr = [
-          "ALT, TAB, cyclenext"
           "ALT, TAB, bringactivetotop"
         ];
       };
