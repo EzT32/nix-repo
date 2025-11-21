@@ -31,12 +31,13 @@ in
 
           wl-clipboard
 
-          gcc
-
           vhdl-ls
           ghdl
 
           asm-lsp
+
+          pyright
+          black
         ];
 
         plugins = with pkgs.vimPlugins; [
@@ -47,6 +48,7 @@ in
           nvim-treesitter-parsers.bash
           nvim-treesitter-parsers.vhdl
           nvim-treesitter-parsers.asm
+          nvim-treesitter-parsers.python
 
           telescope-nvim
           plenary-nvim
