@@ -4,6 +4,6 @@ _: {
     ./minecraft.nix
     ./misc.nix
     ./pipewire.nix
-    ./sddm.nix
+    ./sddm
   ];
 }
