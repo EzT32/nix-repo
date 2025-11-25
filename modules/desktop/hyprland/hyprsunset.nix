@@ -1,17 +1,14 @@
-# https://search.nixos.org/options?channel=25.05&query=systemd.user.services
 {
-  lib,
   config,
+  lib,
   pkgs,
   ...
 }:
-
 let
   cfg = config.modules.desktop.hyprland.hyprsunset;
   pkill-bin = "${pkgs.procps}/bin/pkill";
-  systemd-run = "systemd-run --user --scope --quiet";
-  bash-bin = "${pkgs.bash}/bin/bash";
   hyprsunset-bin = "${pkgs.hyprsunset}/bin/hyprsunset";
+
 in
 {
   options.modules.desktop.hyprland.hyprsunset = {
@@ -26,47 +23,64 @@ in
     home-manager.users.ezt = {
       wayland.windowManager.hyprland.settings = {
         bindl = [
-          "SUPERSHIFT, n, exec, ${pkill-bin} hyprsunset; ${hyprsunset-bin} -t 4500 &"
-          "SUPERSHIFT, d, exec, ${pkill-bin} hyprsunset; ${hyprsunset-bin} -i &"
+          "SUPERSHIFT, n, exec, ${pkill-bin} hyprsunset; ${hyprsunset-bin} -t 4500"
+          "SUPERSHIFT, d, exec, ${pkill-bin} hyprsunset; ${hyprsunset-bin} -i"
         ];
       };
     };
 
-    systemd.user.services.nightlight = {
-      description = "Custom hyprsunset service";
+    systemd.user.services.hyprsunset-autostart = {
+      description = "Autodetect Hyprsunset mode at login";
       wantedBy = [ "graphical-session.target" ];
-
       serviceConfig = {
-        KillMode = "mixed";
         Type = "oneshot";
+        ExecStart = ''
+          time=$(date +%H%M)
+          if [ "$time" -ge 2200 ] || [ "$time" -lt 800 ]; then
+            ${pkgs.systemd}/bin/systemctl --user start hyprsunset-warm.service
+          else
+            ${pkgs.systemd}/bin/systemctl --user start hyprsunset-cold.service
+          fi
+        '';
       };
-
-      script = ''
-        time=$(date +%H%M%S)
-        ${pkill-bin} hyprsunset || true
-        if [ "$time" -ge 220000 -o "$time" -le 080000 ]; then
-          ${systemd-run} ${bash-bin} -c "${hyprsunset-bin} -t 4500 &"
-        else
-           ${systemd-run} ${bash-bin} -c "${hyprsunset-bin} -i &"
-        fi
-      '';
     };
 
-    systemd.user.timers.hyprsunset-day = {
-      description = "Restart hyprsunset for daytime";
+    systemd.user.services.hyprsunset-warm = {
+      description = "Hyprsunset warm mode";
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = ''
+          ${pkgs.procps}/bin/pkill hyprsunset || true
+          ${pkgs.hyprsunset}/bin/hyprsunset -t 4500
+        '';
+      };
+    };
+
+    systemd.user.services.hyprsunset-cold = {
+      description = "Hyprsunset cold mode";
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = ''
+          ${pkgs.procps}/bin/pkill hyprsunset || true
+          ${pkgs.hyprsunset}/bin/hyprsunset -i
+        '';
+      };
+    };
+    systemd.user.timers.hyprsunset-night = {
+      description = "Switch Hyprsunset to warm mode at night";
       timerConfig = {
-        OnCalendar = "*-*-* 08:00:00";
-        Unit = "nightlight.service";
+        OnCalendar = "*-*-* 22:00:00";
+        Unit = "hyprsunset-warm.service";
         Persistent = true;
       };
       wantedBy = [ "timers.target" ];
     };
 
-    systemd.user.timers.hyprsunset-night = {
-      description = "Restart hyprsunset for nighttime";
+    systemd.user.timers.hyprsunset-day = {
+      description = "Switch Hyprsunset to cold mode in the morning";
       timerConfig = {
-        OnCalendar = "*-*-* 22:00:00";
-        Unit = "nightlight.service";
+        OnCalendar = "*-*-* 08:00:00";
+        Unit = "hyprsunset-cold.service";
         Persistent = true;
       };
       wantedBy = [ "timers.target" ];
