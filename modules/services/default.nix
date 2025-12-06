@@ -4,6 +4,7 @@ _: {
     ./minecraft.nix
     ./misc.nix
     ./pipewire.nix
+    ./postgresql.nix
     ./sddm
   ];
 }
