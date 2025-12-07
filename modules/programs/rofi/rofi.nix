@@ -16,7 +16,6 @@ in
     home-manager.users.ezt = {
       programs.rofi = {
         enable = true;
-        package = pkgs.rofi-wayland;
 
         theme = "gruvbox-dark";
 
