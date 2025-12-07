@@ -1,7 +1,6 @@
 local M = {}
 
 function M.setup()
-  local lspconfig = require("lspconfig")
   local shared = require("lsp.shared")
   local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
@@ -9,7 +8,7 @@ function M.setup()
 
   require("neodev").setup({})
 
-  lspconfig.lua_ls.setup({
+  vim.lsp.config("lua_ls", {
     on_attach = shared.on_attach,
     capabilities = capabilities,
     settings = {
@@ -18,6 +17,8 @@ function M.setup()
       },
     },
   })
+
+  vim.lsp.enable("lua_ls")
 end
 
 return M
