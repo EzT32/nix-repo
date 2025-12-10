@@ -24,7 +24,6 @@ in
       wayland.windowManager.hyprland.settings = {
         bindl = [
           "SUPERSHIFT, n, exec, ${pkill-bin} hyprsunset; ${hyprsunset-bin} -t 4500"
-          "SUPERSHIFT, d, exec, ${pkill-bin} hyprsunset; ${hyprsunset-bin} -i"
         ];
       };
     };
