@@ -28,8 +28,12 @@ in
         enable = true;
         package = pkgs.gitFull;
 
-        userName = cfg.userName;
-        userEmail = cfg.userEmail;
+        settings = {
+          user = {
+            name = cfg.userName;
+            email = cfg.userEmail;
+          };
+        };
 
         extraConfig = {
           credential.helper = "libsecret";
