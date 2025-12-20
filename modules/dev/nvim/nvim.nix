@@ -38,6 +38,8 @@ in
 
           pyright
           black
+
+          clang-tools
         ];
 
         plugins = with pkgs.vimPlugins; [
@@ -49,6 +51,7 @@ in
           nvim-treesitter-parsers.vhdl
           nvim-treesitter-parsers.asm
           nvim-treesitter-parsers.python
+          nvim-treesitter-parsers.c
 
           telescope-nvim
           plenary-nvim
