@@ -14,7 +14,7 @@ in
 
   config = lib.mkIf cfg.enable {
     services.blueman.enable = true;
-    
+
     home-manager.users.ezt = {
       xdg.configFile."autostart/blueman.desktop".text = ''
         [Desktop Entry]

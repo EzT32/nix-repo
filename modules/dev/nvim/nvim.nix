@@ -82,5 +82,10 @@ in
       xdg.configFile."nvim/init.lua".source = ./init.lua;
       xdg.configFile."nvim/lua".source = ./lua;
     };
+
+    # TODO: add support for more filetypes
+    environment.systemPackages = with pkgs; [
+      nixfmt-tree
+    ];
   };
 }

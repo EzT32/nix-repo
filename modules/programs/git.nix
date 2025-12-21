@@ -33,9 +33,6 @@ in
             name = cfg.userName;
             email = cfg.userEmail;
           };
-        };
-
-        extraConfig = {
           credential.helper = "libsecret";
         };
       };
