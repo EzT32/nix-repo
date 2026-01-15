@@ -40,6 +40,9 @@ in
           black
 
           clang-tools
+
+          jdt-language-server
+          jdk
         ];
 
         plugins = with pkgs.vimPlugins; [
@@ -52,6 +55,7 @@ in
           nvim-treesitter-parsers.asm
           nvim-treesitter-parsers.python
           nvim-treesitter-parsers.c
+          nvim-treesitter-parsers.java
 
           telescope-nvim
           plenary-nvim
@@ -86,6 +90,7 @@ in
     # TODO: add support for more filetypes
     environment.systemPackages = with pkgs; [
       nixfmt-tree
+      jdt-language-server
     ];
   };
 }
