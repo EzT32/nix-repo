@@ -42,7 +42,6 @@ in
           clang-tools
 
           jdt-language-server
-          jdk
         ];
 
         plugins = with pkgs.vimPlugins; [
@@ -90,7 +89,6 @@ in
     # TODO: add support for more filetypes
     environment.systemPackages = with pkgs; [
       nixfmt-tree
-      jdt-language-server
     ];
   };
 }
