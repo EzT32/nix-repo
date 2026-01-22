@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   cfg = config.modules.programs.ssh;
 in
@@ -28,5 +28,9 @@ in
         };
       };
     };
+
+    environment.systemPackages = [
+      pkgs.xauth
+    ];
   };
 }

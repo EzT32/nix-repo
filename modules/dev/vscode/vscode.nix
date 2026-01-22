@@ -20,7 +20,7 @@ in
         enable = true;
         package = pkgs.vscodium;
 
-        userSettings = {
+        profiles.default.userSettings = {
           "editor.formatOnSave" = true;
           "settingsSync.enabled" = false;
           "python.defaultInterpreterPath" = "${vscodePython}/bin/python";

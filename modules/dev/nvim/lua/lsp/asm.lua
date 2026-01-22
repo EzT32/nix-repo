@@ -9,7 +9,7 @@ function M.setup()
 
   vim.lsp.config("asm_lsp", {
     on_attach = shared.on_attach,
-    capabilities = capabilities,
+    capabilities = capabilities
   })
 
 
