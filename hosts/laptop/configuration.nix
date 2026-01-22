@@ -13,6 +13,7 @@ _: {
     programs = {
       obsidian.enable = true;
       blueman.enable = true;
+      vscode.enable = true;
     };
   };
 }
