@@ -7,7 +7,7 @@
 let
   cfg = config.modules.programs.vscode;
 
-  vscodePython = pkgs.python312;
+  vscodePython = pkgs.python313;
 in
 {
   options.modules.programs.vscode = {
@@ -18,27 +18,49 @@ in
     home-manager.users.ezt = {
       programs.vscode = {
         enable = true;
-        package = pkgs.vscodium;
+        package = pkgs.vscodium.fhs;
 
-        profiles.default.userSettings = {
-          "editor.formatOnSave" = true;
-          "settingsSync.enabled" = false;
-          "python.defaultInterpreterPath" = "${vscodePython}/bin/python";
+        profiles.default = {
+          userSettings = {
+            # Formatting
+            "editor.formatOnSave" = true;
+            "[python]" = {
+              "editor.defaultFormatter" = "charliermarsh.ruff";
+            };
 
-          # Use Black only for Python files
-          "[python]" = {
-            "editor.defaultFormatter" = "ms-python.black-formatter";
+            "python.defaultInterpreterPath" = "${vscodePython}/bin/python";
+
+            # Ricing
+            "workbench.colorTheme" = "Gruvbox Dark Medium";
+
+            # LSP
+            "python.languageServer" = "Pylance";
+            "python.analysis.languageServerMode" = "full";
+            "python.analysis.enableEditableInstalls" = false;
+
+            # Wordwrap
+            "editor.wordWrap" = "on";
           };
 
-          # Optional: Ruff diagnostics in editor
-          "python.linting.enabled" = true;
-          "python.linting.ruffEnabled" = true;
+          extensions = with pkgs.vscode-extensions; [
+            ms-python.python
+            charliermarsh.ruff
+            ms-python.vscode-pylance
+            #ms-toolsai.jupyter
+            ms-vscode.live-server
+            ms-vsliveshare.vsliveshare
+            ms-python.debugpy
 
-          # Jupyter inline outputs
-          "jupyter.askForKernelRestart" = false;
+            # Colortheme
+            jdinhlife.gruvbox
+            pkief.material-icon-theme
 
-          "workbench.colorTheme" = "Gruvbox Dark Medium";
+            # Docstrings
+            njpwerner.autodocstring
+          ];
+
         };
+
       };
     };
   };
