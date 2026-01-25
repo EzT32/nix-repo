@@ -6,8 +6,6 @@
 }:
 let
   cfg = config.modules.programs.vscode;
-
-  vscodePython = pkgs.python313;
 in
 {
   options.modules.programs.vscode = {
@@ -18,7 +16,10 @@ in
     home-manager.users.ezt = {
       programs.vscode = {
         enable = true;
-        package = pkgs.vscodium.fhs;
+        package = pkgs.vscode.fhsWithPackages (p: [
+          p.python313
+        ]);
+        mutableExtensionsDir = false;
 
         profiles.default = {
           userSettings = {
@@ -28,25 +29,31 @@ in
               "editor.defaultFormatter" = "charliermarsh.ruff";
             };
 
-            "python.defaultInterpreterPath" = "${vscodePython}/bin/python";
-
             # Ricing
             "workbench.colorTheme" = "Gruvbox Dark Medium";
 
             # LSP
             "python.languageServer" = "Pylance";
-            "python.analysis.languageServerMode" = "full";
-            "python.analysis.enableEditableInstalls" = false;
 
             # Wordwrap
             "editor.wordWrap" = "on";
+
+            # AI slop
+            "chat.agent.enabled" = false;
+            "chat.disableAIFeatures" = true;
+
+            "extensions.autoUpdate" = false;
+
+            "extensions.verifySignature" = false;
+
+            "extensions.autoCheckUpdates" = true;
           };
 
           extensions = with pkgs.vscode-extensions; [
             ms-python.python
             charliermarsh.ruff
             ms-python.vscode-pylance
-            #ms-toolsai.jupyter
+            ms-toolsai.jupyter
             ms-vscode.live-server
             ms-vsliveshare.vsliveshare
             ms-python.debugpy
@@ -58,9 +65,7 @@ in
             # Docstrings
             njpwerner.autodocstring
           ];
-
         };
-
       };
     };
   };
