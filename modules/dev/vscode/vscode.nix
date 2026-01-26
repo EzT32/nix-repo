@@ -17,7 +17,12 @@ in
       programs.vscode = {
         enable = true;
         package = pkgs.vscode.fhsWithPackages (p: [
-          p.python313
+          (p.python3.withPackages
+          (ps: [
+            ps.pip
+            ps.jupyter
+            ps.notebook
+          ]))
         ]);
         mutableExtensionsDir = false;
 
@@ -64,7 +69,7 @@ in
 
             # Docstrings
             njpwerner.autodocstring
-            
+
             tomoki1207.pdf
           ];
         };
