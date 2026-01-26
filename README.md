@@ -12,15 +12,20 @@ Single root flake to handle userspace and system configurations.
 │   │   │   └── keybindings
 │   │   └── waybar
 │   ├── dev
-│   │   └── nvim
-│   │       └── lua
-│   │           ├── core
-│   │           ├── lsp
-│   │           └── plugins
+│   │   ├── nvim
+│   │   │   └── lua
+│   │   │       ├── core
+│   │   │       ├── lsp
+│   │   │       └── plugins
+│   │   └── vscode
+│   ├── fonts
 │   ├── programs
 │   │   ├── rofi
 │   │   └── shell
 │   ├── services
+│   │   └── sddm
+│   │       └── themes
+│   │           └── Gruvbox
 │   ├── system
 │   └── users
 ├── overlays

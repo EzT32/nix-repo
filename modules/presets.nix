@@ -39,7 +39,10 @@
     };
 
     programs = {
-      discord.enable = true;
+      discord = {
+        enable = true;
+        vesktop = true;
+      };
       mpv.enable = true;
       spotify.enable = true;
     };
