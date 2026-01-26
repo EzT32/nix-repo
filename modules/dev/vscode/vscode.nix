@@ -64,6 +64,8 @@ in
 
             # Docstrings
             njpwerner.autodocstring
+            
+            tomoki1207.pdf
           ];
         };
       };

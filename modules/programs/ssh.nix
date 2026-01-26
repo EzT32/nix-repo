@@ -15,14 +15,22 @@ in
         enableDefaultConfig = false;
 
         matchBlocks = {
+          "uio" = {
+            host = "uio";
+            hostname = "login.uio.no";
+            user = "theodobe";
+            forwardX11 = true;
+            forwardX11Trusted = true;
+            compression = true;
+          };
           "ifi" = {
+            host = "ifi";
             hostname = "login.ifi.uio.no";
             user = "theodobe";
-            proxyJump = "theodobe@login.uio.no";
-            forwardAgent = true;
-          };
-          "login.uio.no" = {
-            user = "theodobe";
+            forwardX11 = true;
+            forwardX11Trusted = true;
+            compression = true;
+            proxyJump = "uio";
           };
         };
       };
