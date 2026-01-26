@@ -3,7 +3,7 @@
   security = {
     rtkit.enable = true;
     pam.services.gdm-password.enableGnomeKeyring = true;
+    sudo.extraConfig = "Defaults timestamp_timeout=15";
   };
-
   programs.gnupg.agent.enable = true;
 }
