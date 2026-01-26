@@ -45,6 +45,7 @@
       };
       mpv.enable = true;
       spotify.enable = true;
+      ssh.enable = true;
     };
 
     services = {
