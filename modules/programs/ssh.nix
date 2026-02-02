@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.modules.programs.ssh;
 in
@@ -32,12 +37,21 @@ in
             compression = true;
             proxyJump = "uio";
           };
+
+          "github-uio" = {
+            host = "github.uio.no";
+            hostname = "github.uio.no";
+            user = "git";
+            identityFile = "~/.ssh/id_ed25519_theodobe";
+            identitiesOnly = true;
+          };
         };
       };
     };
 
     environment.systemPackages = [
       pkgs.xauth
+      pkgs.sshfs
     ];
   };
 }

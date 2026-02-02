@@ -14,6 +14,7 @@ _: {
     ./steam.nix
     ./syncplay.nix
     ./vlc.nix
+    ./wlr-randr.nix
     ./rofi
     ./shell
   ];

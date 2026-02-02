@@ -1,5 +1,4 @@
 { config, lib, ... }:
-
 let
   cfg = config.modules.shell.bash;
 in
@@ -15,6 +14,12 @@ in
 
         initExtra = ''
           [[ -f ~/.profile ]] && . ~/.profile
+
+          alias os_course='sshfs uio:os_course ~/os_course -o reconnect'
+          alias os_course_umount='fusermount -u ~/os_course || umount ~/os_course'
+
+          alias IN3160='sshfs uio:IN3160 ~/uio/v26/IN3160 -o reconnect'
+          alias IN3160_umount='fusermount -u ~/uio/v26/IN3160 || umount ~/uio/v26/IN3160'
         '';
       };
     };
