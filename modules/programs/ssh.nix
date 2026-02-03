@@ -45,6 +45,14 @@ in
             identityFile = "~/.ssh/id_ed25519_theodobe";
             identitiesOnly = true;
           };
+
+          "github-ezt" = {
+            host = "github.com";
+            hostname = "github.com";
+            user = "git";
+            identityFile = "~/.ssh/id_ed25519_ezt32";
+            identitiesOnly = true;
+          };
         };
       };
     };
