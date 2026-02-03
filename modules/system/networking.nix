@@ -1,5 +1,4 @@
-{ ... }:
-{
+_: {
   networking = {
     networkmanager = {
       enable = true;
@@ -9,7 +8,6 @@
         backend = "iwd";
       };
     };
-    wireless.iwd.enable = true;
 
     firewall = {
       enable = true;
