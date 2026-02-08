@@ -8,6 +8,7 @@ _: {
     ./libreoffice.nix
     ./mpv.nix
     ./obsidian.nix
+    ./pinta.nix
     ./prismlauncher.nix
     ./spotify.nix
     ./ssh.nix
