@@ -1,9 +1,8 @@
-{ pkgs, ... }:
-{
+_: {
   nixpkgs.config.allowUnfree = true;
   programs.firefox.enable = true;
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 
   modules = {
     kitty.enable = true;
