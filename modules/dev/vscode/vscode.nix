@@ -6,6 +6,31 @@
 }:
 let
   cfg = config.modules.programs.vscode;
+
+  pythonEnv = pkgs.vscode.fhsWithPackages (p: [
+    (p.python3.withPackages (
+      ps: with ps; [
+        pip
+        ipykernel
+        jupyter
+        notebook
+
+        # IN1160
+        numpy
+        matplotlib
+        pandas
+        ipykernel
+        scikit-learn
+        seaborn
+        pyyaml
+        ipython
+        plotly
+        gymnasium
+        datasets
+      ]
+    ))
+  ]);
+
 in
 {
   options.modules.programs.vscode = {
@@ -16,13 +41,7 @@ in
     home-manager.users.ezt = {
       programs.vscode = {
         enable = true;
-        package = pkgs.vscode.fhsWithPackages (p: [
-          (p.python3.withPackages (ps: [
-            ps.pip
-            ps.jupyter
-            ps.notebook
-          ]))
-        ]);
+        package = pythonEnv;
         mutableExtensionsDir = false;
 
         profiles.default = {
@@ -32,6 +51,8 @@ in
             "[python]" = {
               "editor.defaultFormatter" = "charliermarsh.ruff";
             };
+
+            "python.defaultInterpreterPath" = "usr/bin/python";
 
             # Ricing
             "workbench.colorTheme" = "Gruvbox Dark Medium";
@@ -47,10 +68,9 @@ in
             "chat.disableAIFeatures" = true;
 
             "extensions.autoUpdate" = false;
+            "extensions.autoCheckUpdates" = false;
 
             "extensions.verifySignature" = false;
-
-            "extensions.autoCheckUpdates" = true;
 
             "workbench.startupEditor" = "none";
           };
@@ -75,6 +95,9 @@ in
           ];
         };
       };
+      home.packages = [
+        pythonEnv
+      ];
     };
   };
 }
