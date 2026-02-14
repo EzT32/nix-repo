@@ -35,6 +35,7 @@ in
           ghdl
 
           asm-lsp
+          asmfmt
 
           pyright
           black

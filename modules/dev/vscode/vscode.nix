@@ -17,8 +17,7 @@ in
       programs.vscode = {
         enable = true;
         package = pkgs.vscode.fhsWithPackages (p: [
-          (p.python3.withPackages
-          (ps: [
+          (p.python3.withPackages (ps: [
             ps.pip
             ps.jupyter
             ps.notebook
@@ -52,6 +51,8 @@ in
             "extensions.verifySignature" = false;
 
             "extensions.autoCheckUpdates" = true;
+
+            "workbench.startupEditor" = "none";
           };
 
           extensions = with pkgs.vscode-extensions; [
