@@ -95,9 +95,6 @@ in
           ];
         };
       };
-      home.packages = [
-        pythonEnv
-      ];
     };
   };
 }
