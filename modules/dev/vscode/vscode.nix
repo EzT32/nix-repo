@@ -27,6 +27,7 @@ let
         plotly
         gymnasium
         datasets
+        pkgs.openml
       ]
     ))
   ]);
