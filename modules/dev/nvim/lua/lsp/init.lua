@@ -1,3 +1,4 @@
+require('lsp.none-ls').setup()
 require('lsp.nix').setup()
 require('lsp.lua').setup()
 require('lsp.vhdl').setup()

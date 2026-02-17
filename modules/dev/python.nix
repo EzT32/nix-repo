@@ -6,6 +6,8 @@
         python-pkgs: with python-pkgs; [
           evdev
           pyaml
+          numpy
+          black
         ]
       ))
       pandoc

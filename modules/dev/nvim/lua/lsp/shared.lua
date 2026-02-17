@@ -3,7 +3,6 @@ local M = {}
 M.on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
 
-  -- Buffer-local LSP keymaps
   local map = vim.keymap.set
   map("n", "gd", vim.lsp.buf.definition, opts)
   map("n", "gD", vim.lsp.buf.declaration, opts)
@@ -14,7 +13,6 @@ M.on_attach = function(client, bufnr)
   map("n", "<leader>ca", vim.lsp.buf.code_action, opts)
   map("n", "<leader>f", function() vim.lsp.buf.format({ async = true }) end, opts)
 
-  -- Autoformat on save if server supports it
   if client.supports_method("textDocument/formatting") then
     vim.api.nvim_create_autocmd("BufWritePre", {
       buffer = bufnr,

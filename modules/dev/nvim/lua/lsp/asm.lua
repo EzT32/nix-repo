@@ -13,17 +13,7 @@ function M.setup()
     filetypes = { "asm", "s" }
   })
 
-
   vim.lsp.enable("asm_lsp")
-
-  local null_ls = require("null-ls")
-
-  null_ls.setup({
-    sources = {
-      null_ls.builtins.formatting.asmfmt,
-    },
-    on_attach = shared.on_attach,
-  })
 end
 
 return M
