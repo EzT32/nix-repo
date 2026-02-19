@@ -21,11 +21,21 @@ function M.setup()
 
   vim.api.nvim_create_autocmd("CursorHold", {
     callback = function()
-      vim.diagnostic.open_float(nil, {
-        focusable = false,
-        border = "rounded",
-        scope = "cursor",
-      })
+      -- Only open diagnostics if no floating window exists
+      local float_exists = false
+      for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+        if vim.api.nvim_win_get_config(win).relative ~= "" then
+          float_exists = true
+          break
+        end
+      end
+      if not float_exists then
+        vim.diagnostic.open_float(nil, {
+          focusable = false,
+          border = "rounded",
+          scope = "cursor",
+        })
+      end
     end,
   })
 end
