@@ -38,10 +38,7 @@ _: {
     };
 
     programs = {
-      discord = {
-        enable = true;
-        vesktop = true;
-      };
+      discord.enable = true;
       mpv.enable = true;
       spotify.enable = true;
       ssh.enable = true;

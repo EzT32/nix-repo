@@ -1,7 +1,7 @@
 _: {
   imports = [
     ./bluetooth.nix
-    ./minecraft.nix
+    #./minecraft.nix
     ./misc.nix
     ./pipewire.nix
     ./postgresql.nix

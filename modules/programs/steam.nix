@@ -21,7 +21,7 @@ in
 
       package = pkgs.steam.override {
         extraEnv = {
-          MANGOHUD = true;
+          MANGOHUD = false;
           STEAM_FORCE_DESKTOPUI_SCALING = "1";
           STEAM_SCALE = "0.75";
         };

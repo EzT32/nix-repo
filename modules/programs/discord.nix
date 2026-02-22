@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  unstable,
+  pkgs,
   ...
 }:
 let
@@ -20,25 +20,15 @@ in
       type = lib.types.bool;
       default = true;
     };
-
-    vesktop = lib.mkOption {
-      type = lib.types.bool;
-      default = true;
-    };
   };
 
   config = lib.mkIf cfg.enable {
     home-manager.users.ezt = {
-      home.packages = with unstable; [
-        (
-          if cfg.vesktop then
-            vesktop
-          else
-            (discord.override {
-              withOpenASAR = cfg.openASAR;
-              withVencord = cfg.vencord;
-            })
-        )
+      home.packages = with pkgs; [
+        (discord.override {
+          withOpenASAR = cfg.openASAR;
+          withVencord = cfg.vencord;
+        })
       ];
     };
   };
