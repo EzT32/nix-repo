@@ -1,19 +1,10 @@
 local M = {}
 
 function M.setup()
-  local shared = require('lsp.shared')
-  local cmp_nvim_lsp = require('cmp_nvim_lsp')
-
-  local capabilities = cmp_nvim_lsp.default_capabilities()
-
-
-  vim.lsp.config("asm_lsp", {
-    on_attach = shared.on_attach,
-    capabilities = capabilities,
-    filetypes = { "asm", "s" }
-  })
-
-  vim.lsp.enable("asm_lsp")
+	require("lsp.shared").setup_server("asm_lsp", {
+		cmd = { "asm_lsp" },
+		filetypes = { "asm", "s" },
+	})
 end
 
 return M

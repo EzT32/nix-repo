@@ -69,7 +69,6 @@ in
           indent-blankline-nvim
           comment-nvim
 
-          #none-ls-nvim
           conform-nvim
 
           nvim-cmp

@@ -20,7 +20,7 @@ function M.setup()
 			python = { "black" },
 			c = { "clang_format" },
 			cpp = { "clang_format" },
-			java = { "clang_format" },
+			java = { "prefer" },
 			asm = { "asmfmt" },
 			vhdl = { "vsg" },
 		},
