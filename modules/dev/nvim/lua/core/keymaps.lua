@@ -28,10 +28,10 @@ function M.setup()
 	map("n", "<leader>bd", ":bdelete<CR>", opts)
 
 	-- Telescope
-	map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts)
-	map("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
-	map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
-	map("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
+	map("n", "<leader>Sf", "<cmd>Telescope find_files<cr>", opts)
+	map("n", "<leader>Sg", "<cmd>Telescope live_grep<cr>", opts)
+	map("n", "<leader>Sb", "<cmd>Telescope buffers<cr>", opts)
+	map("n", "<leader>Sh", "<cmd>Telescope help_tags<cr>", opts)
 end
 
 return M

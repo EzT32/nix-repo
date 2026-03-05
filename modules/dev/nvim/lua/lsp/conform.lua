@@ -6,12 +6,6 @@ function M.setup()
 	conform.setup({
 		default_format_opts = {
 			lsp_format = "fallback",
-			timeout_ms = 2000,
-		},
-
-		format_on_save = {
-			lsp_format = "fallback",
-			timeout_ms = 2000,
 		},
 
 		formatters_by_ft = {
@@ -20,7 +14,6 @@ function M.setup()
 			python = { "black" },
 			c = { "clang_format" },
 			cpp = { "clang_format" },
-			java = { "prefer" },
 			asm = { "asmfmt" },
 			vhdl = { "vsg" },
 		},
