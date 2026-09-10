@@ -15,43 +15,53 @@
     includes = with den.aspects; [
       den.batteries.host-aspects
 
-      hyprland
-      nix
-      locale
-      fonts
-      security
-      clipboard
-      networking
-      boot
-      pipewire
-      sddm
-      bluetooth
+      # cli
       bash
-      git
       core-cli
+      eza
+      git
       ssh
-      firefox
-      discord
-      python
+      zoxide
+
+      # dev
       java
       nvim
-      onlyoffice
-      spotify
-      vlc
+      python
       vscode
-      mpv
-      pinta
-      kitty
-      localsend
-      misc
+
+      # gui
       cursor
       dolphin
+      hyprland
       rofi
-      xdg
       waybar
+      xdg
 
-      zoxide
-      eza
+      # programs
+      firefox
+      mpv
+      onlyoffice
+      discord
+      kitty
+      localsend
+      pinta
+      spotify
+      vlc
+
+      # services
+      bluetooth
+      misc
+      pipewire
+      sddm
+
+      #system
+      boot
+      fonts
+      networking
+      security
+      clipboard
+      locale
+      nix
     ];
   };
 }

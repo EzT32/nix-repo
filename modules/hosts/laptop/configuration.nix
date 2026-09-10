@@ -9,14 +9,10 @@
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
       ];
     };
-    provides.to-users = {
-      homeManager = {
-        cursor.size = 20;
-      };
-    };
 
     homeManager = {
       hyprland.hyprpaper.wallpaper = "yongqiang.jpg";
+      cursor.size = 20;
     };
 
     includes = with den.aspects; [
