@@ -10,6 +10,10 @@
       boot.kernelParams = [ "mitigations=off" ];
     };
 
+    homeManager = {
+      hyprland.hyprpaper.wallpaper = "yongqiang.jpg";
+    };
+
     includes = with den.aspects; [
       wooting
       steam
