@@ -15,6 +15,10 @@
       };
     };
 
+    homeManager = {
+      hyprland.hyprpaper.wallpaper = "yongqiang.jpg";
+    };
+
     includes = with den.aspects; [
       hyprland-laptop-binds
       blueman
