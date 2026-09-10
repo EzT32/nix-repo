@@ -19,12 +19,11 @@ tooltip {
 }
 
 #clock,
-#tray,
 #cpu,
 #memory,
 #battery,
 #network,
-#pulseaudio {
+#wireplumber {
     margin: 6px 6px 6px 0px;
     padding: 2px 8px;
 }
@@ -43,7 +42,13 @@ tooltip {
     color: #c7ab7a;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
+    background-color: #a9b665;
+    color: #1d2021;
+    box-shadow: inset 0 -3px #6c782e;
+}
+
+#workspaces button.visible {
     color: #ddc7a1;
 }
 
@@ -57,11 +62,6 @@ tooltip {
     color: #d4be98;
 }
 
-#tray {
-    background-color: #d4be98;
-    border: 2px solid #c7ab7a;
-}
-
 #battery {
     background-color: #a9b665;
     border: 2px solid #c7ab7a;
@@ -71,23 +71,28 @@ tooltip {
 #cpu,
 #memory,
 #network,
-#pulseaudio {
-    background-color: #ddc7a1;
-    border: 2px solid #c7ab7a;
-    color: #1d2021;
+#wireplumber {
+    background-color: #303536;
+    border: 2px solid #434a4c;
+    color: #d4be98;
 }
 
 #cpu.critical,
 #memory.critical {
+    background-color: #303536;
+    border: 2px solid #434a4c;
+    color: #c14a4a;
+}
+
+#battery.warning,
+#battery.critical {
     background-color: #ddc7a1;
     border: 2px solid #c7ab7a;
     color: #c14a4a;
 }
 
-#battery.warning,
-#battery.critical,
-#battery.urgent {
-    background-color: #ddc7a1;
-    border: 2px solid #c7ab7a;
-    color: #c14a4a;
+#wireplumber.muted {
+    background-color: #303536;
+    border: 2px solid #434a4c;
+    color: #7c6f64;
 }
