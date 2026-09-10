@@ -1,7 +1,7 @@
 # How things work
 
 ## import-tree & flake-parts
-Files pointed at in `hosts/<host>/configuration.nix` are collected by the `import-tree` tool. It collects every file with the `.nix` suffix it finds, and hands them over to the module system – similarly to listing them in `imports = []` manually.
+Files pointed at in `modules/hosts/<host>/configuration.nix` are collected by the `import-tree` tool. It collects every file with the `.nix` suffix it finds, and hands them over to the module system – similarly to listing them in `imports = []` manually.
 
 ### Special cases
 The `_` prefix works on either a file or folder and opts it out of the tool's discovery. Features currently being drafted or that are not wanted in the context, should therefore be denoted as such.
