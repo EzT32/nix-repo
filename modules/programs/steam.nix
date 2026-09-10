@@ -2,6 +2,12 @@
 _: {
   den.aspects.steam = {
     nixos = { pkgs, ... }: {
+
+      hardware.graphics = {
+        enable = true;
+        enable32Bit = true;
+      };
+
       programs.steam = {
         enable = true;
         remotePlay.openFirewall = true;
@@ -12,6 +18,7 @@ _: {
           extraEnv = {
             MANGOHUD = "1";
             STEAM_SCALE = "0.75";
+            PROTON_ENABLE_NTSYNC = true;
           };
           extraPkgs = pkgs: [ pkgs.mangohud ];
         };

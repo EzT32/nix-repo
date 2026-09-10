@@ -13,6 +13,8 @@
     };
 
     includes = with den.aspects; [
+      den.batteries.host-aspects
+
       hyprland
       nix
       locale
@@ -47,6 +49,9 @@
       rofi
       xdg
       waybar
+
+      zoxide
+      eza
     ];
   };
 }

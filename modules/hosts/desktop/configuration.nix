@@ -5,6 +5,13 @@
     nixos = { ... }: {
       networking.hostName = "desktop";
       imports = [ ./_hardware-configuration.nix ];
+
+      powerManagement.cpuFreqGovernor = "performance";
+      boot.kernelParams = [ "mitigations=off" ];
+    };
+
+    homeManager = {
+      hyprland.hyprpaper.wallpaper = "yongqiang.jpg";
     };
 
     includes = with den.aspects; [
